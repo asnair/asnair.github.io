@@ -1,0 +1,39 @@
+bar and line charts using json data in hugo
+
+get chart.js
+
+{{ $data := getJSON $url }}
+
+json example data:
+
+{
+    "data":{
+      "labels": ["Jekyll", "Hugo", "Wintersmith"],
+      "datasets": [
+          {
+              "label": "Mean build time",
+              "fillColor": "#E1EDD7",
+              "strokeColor": "#E1EDD7",
+              "highlightFill": "#C1D8AB",
+              "highlightStroke": "#C1D8AB",
+              "data": [784, 100, 5255]
+          }
+      ]
+  },
+  "options": {
+      "scaleBeginAtZero" : true,
+      "scaleShowGridLines" : true,
+      "scaleGridLineColor" : "rgba(0,0,0,.05)",
+      "scaleGridLineWidth" : 1,
+      "barShowStroke" : true,
+      "barStrokeWidth" : 2,
+      "barValueSpacing" : 5,
+      "barDatasetSpacing" : 1,
+      "responsive": true,
+      "maintainAspectRatio": false
+  }
+}
+
+then use the following on the page:
+
+{{ % barchart name="chart" url="path/to/data.json" includejs="true" %}}

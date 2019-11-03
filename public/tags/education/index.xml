@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Education on Good Debate</title>
+    <link>https://gooddebate.org/tags/education/</link>
+    <description>Recent content in Education on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 06 Mar 2017 03:06:09 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/education/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Improving the School System</title>
+      <link>https://gooddebate.org/tech/improving_school_system/</link>
+      <pubDate>Mon, 06 Mar 2017 03:06:09 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/improving_school_system/</guid>
+      <description>Improving the School System I recently came across an essay I wrote my senior year in high school entitled &amp;ldquo;How to improve the educational system&amp;rdquo;. This is one of the longest essays I&amp;rsquo;ve ever written at 5400 words, but it wasn&amp;rsquo;t for a class. I wrote the paper because I felt it would help improve the system if the right people read it. It was well received and made its way up the ladder, unfortunately not much came of it.</description>
+    </item>
+    
+    <item>
+      <title>Get Started Hacking</title>
+      <link>https://gooddebate.org/tech/get_started_hacking/</link>
+      <pubDate>Tue, 13 Dec 2016 20:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/get_started_hacking/</guid>
+      <description>If you want to hack (all the things) In my last post, I told my story about how I started hacking. Hopefully that made you want to learn too, so I made the honorary &amp;lsquo;How to start hacking&amp;rsquo; post. The following are tips when starting out that I wish I knew, as sometimes it&amp;rsquo;s hard to figure out what you should be learning.
+Google As stated, googling is the most important thing you can do.</description>
+    </item>
+    
+    <item>
+      <title>Get Started Hacking</title>
+      <link>https://gooddebate.org/travel/get_started_hacking/</link>
+      <pubDate>Tue, 13 Dec 2016 20:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/travel/get_started_hacking/</guid>
+      <description>If you want to hack (all the things) In my last post, I told my story about how I started hacking. Hopefully that made you want to learn too, so I made the honorary &amp;lsquo;How to start hacking&amp;rsquo; post. The following are tips when starting out that I wish I knew, as sometimes it&amp;rsquo;s hard to figure out what you should be learning.
+Google As stated, googling is the most important thing you can do.</description>
+    </item>
+    
+    <item>
+      <title>Why I started Hacking</title>
+      <link>https://gooddebate.org/tech/why-i-started-hacking/</link>
+      <pubDate>Mon, 12 Dec 2016 18:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/why-i-started-hacking/</guid>
+      <description>Why I started hacking I thought I&amp;rsquo;d write this because of the number of questions I get about how I got started hacking, so here&amp;rsquo;s the story:
+*Note: infosec and cybersecurity are used interchangeably.
+I started &amp;lsquo;hacking&amp;rsquo; when I was 12 years old. I got an Xbox 360 the year before, and loved playing Call of Duty. After about a year, it started getting a little boring, but one day I joined a random game, which happened to be a &amp;lsquo;10th prestige lobby&amp;rsquo;, or a hacked lobby.</description>
+    </item>
+    
+    <item>
+      <title>Kali in VirtualBox</title>
+      <link>https://gooddebate.org/tech/setting_up_kali_using_virtualbox/</link>
+      <pubDate>Mon, 28 Nov 2016 11:40:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/setting_up_kali_using_virtualbox/</guid>
+      <description>Setting up Kali using VirtualBox So this short blog post is about setting up Kali in VirtualBox. I had a few problems with networking, but the process is overall very straight forward. There are various guides out there, but it seems there are almost always unaddressed issues.
+At first I actually tried in VMware, but couldn&amp;rsquo;t quite get the networking right. VirtualBox just turned out to be easier, and VirtualBox seems easier to work with from a Vagrant perspective, which is also a huge bonus.</description>
+    </item>
+    
+  </channel>
+</rss>

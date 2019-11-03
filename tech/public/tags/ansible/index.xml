@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ansible on Good Debate</title>
+    <link>https://gooddebate.org/tags/ansible/</link>
+    <description>Recent content in Ansible on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 23 Oct 2017 13:17:29 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Development Environment</title>
+      <link>https://gooddebate.org/tech/python_development_environment/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/python_development_environment/</guid>
+      <description>Python Development Environment I set out to create an extensible, portable python development that would be consistent if I moved it between operating environments and architectures. When I first set out on this project, I wanted to use Docker to deploy a dev environment on top of a Debian based system. I didn&amp;rsquo;t realize this when I started, nor did Google seem to know that Docker isn&amp;rsquo;t meant for a dev environment, only for pushing about apps after they&amp;rsquo;re made.</description>
+    </item>
+    
+    <item>
+      <title>Failed Building Wheel for Cryptography</title>
+      <link>https://gooddebate.org/tech/failed_building_wheel_for_cryptography/</link>
+      <pubDate>Tue, 02 May 2017 16:38:19 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/failed_building_wheel_for_cryptography/</guid>
+      <description>This post was originally going to be about how to set up a few different systems, including vagrant, docker, ansible, and some random python projects on debian/ubuntu systems, but I ran into a singular problem on almost everything I did. The error was always
+Failed Building Wheel for Cryptography
+I&amp;rsquo;ve gotten this problem several times, and it can be caused by different things. I found a few posts that helped me (here and here and here), but here is a quick summary which should help you in almost all situations:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,123 @@
+baseurl = "https://gooddebate.org/" # Make sure to end baseurl with a '/'
+title = "Good Debate"
+author = "Austin Snair"
+# Shown in the side menu
+copyright = "&copy; Feb 15th, 1946. All rights reserved."
+canonifyurls = true
+paginate = 50
+theme = "blackburn"
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+  subtitle = "Tech, Travel, and Projects by a Purdue Student"
+  brand = "GoodDebate"
+  #googleAnalytics = "Your Google Analytics tracking ID"
+  #disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  #highlightjs = "androidstudio"
+  #highlightjs_extra_languages = ["yaml"]
+  dateFormat = "02 Jan 2006, 15:04"
+  # Include any custom CSS and/or JS files
+  # (relative to /static folder)
+  #custom_css = ["css/my.css"]
+  #custom_js = ["js/my.js"]
+
+  [params.piwikAnalytics]
+    siteid = 2
+    #piwikroot = "//analytics.example.com/"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Tech Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "techpost"
+    url = "/"
+  [[menu.main]]
+    name = "Travel Posts"
+    pre = "<i class='fa fa-plane fa-fw'></i>"
+    weight = 2
+    identifier = "travelpost"
+    url = "/travel/" 
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 3
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Contact"
+    pre = "<i class='fa fa-phone fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
+  [[menu.main]]
+    name = "SIN"
+    pre = "<i class='sidebar-button-icon fa fa-lg fa-globe'></i>"
+    weight = 5
+    identifier = "SIN"
+    url = "/sin/mirror/"
+  [[menu.main]]
+    name = "Ebooks"
+    pre = "<i class='sidebar-button-icon fa fa-microphone-slash'></i>"
+    weight = 6
+    identifier = "Ebooks"
+    url = "/sin/banned/"
+
+[social]
+  # Link your social networking accounts to the side menu
+  # by entering your username or ID.
+
+  # SNS microblogging
+  twitter = "@a_snair"
+  #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
+  #facebook = "*"
+  #googleplus = "*"
+  #weibo = "*"
+  #tumblr = "*"
+
+  # SNS photo/video sharing
+  #instagram = "*"
+  #flickr = "*"
+  #photo500px = "*"
+  #pinterest = "*"
+  #youtube = "*"
+  #vimeo = "*"
+  #vine = "*"
+  #slideshare = "*"
+
+  # SNS career oriented
+  #linkedin = "*"
+  #xing = "*"
+
+  # SNS news
+  #reddit = "*"
+  hackernews = "lowpro"
+
+  # Techie
+  github = "asnair"
+  #gitlab = "*"
+  #bitbucket = "*"
+  #stackoverflow = "*"
+  #serverfault = "*"
+
+  # Gaming
+  #steam = "*"
+  #mobygames = "*"
+
+  # Music
+  #lastfm = "*"
+  #discogs = "*"
+
+  # Other
+  keybase = "asnair"
+

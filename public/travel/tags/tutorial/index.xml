@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on Good Debate</title>
+    <link>https://gooddebate.org/tags/tutorial/</link>
+    <description>Recent content in Tutorial on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 07 Dec 2017 08:00:21 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Applied Neural Networks</title>
+      <link>https://gooddebate.org/travel/neural_nets/</link>
+      <pubDate>Thu, 07 Dec 2017 08:00:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/travel/neural_nets/</guid>
+      <description>Classifying Drones based on Sound Frequency From January to March of this year, I worked with students from Chungnam National University (충남대학교) in South Korean in research regarding Neural Networks. Specifically, we wanted to create a Convolutional Neural Network that could classify different types of drones and whether they were carrying a payload or not using low cost microphones. The purpose of this system was focused on providing law enforcement or military support in identifying if drones were carrying bombs in high density population environments.</description>
+    </item>
+    
+    <item>
+      <title>Get Started Hacking</title>
+      <link>https://gooddebate.org/travel/get_started_hacking/</link>
+      <pubDate>Tue, 13 Dec 2016 20:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/travel/get_started_hacking/</guid>
+      <description>If you want to hack (all the things) In my last post, I told my story about how I started hacking. Hopefully that made you want to learn too, so I made the honorary &amp;lsquo;How to start hacking&amp;rsquo; post. The following are tips when starting out that I wish I knew, as sometimes it&amp;rsquo;s hard to figure out what you should be learning.
+Google As stated, googling is the most important thing you can do.</description>
+    </item>
+    
+    <item>
+      <title>Kali in VirtualBox</title>
+      <link>https://gooddebate.org/travel/setting_up_kali_using_virtualbox/</link>
+      <pubDate>Mon, 28 Nov 2016 11:40:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/travel/setting_up_kali_using_virtualbox/</guid>
+      <description>Setting up Kali using VirtualBox So this short blog post is about setting up Kali in VirtualBox. I had a few problems with networking, but the process is overall very straight forward. There are various guides out there, but it seems there are almost always unaddressed issues.
+At first I actually tried in VMware, but couldn&amp;rsquo;t quite get the networking right. VirtualBox just turned out to be easier, and VirtualBox seems easier to work with from a Vagrant perspective, which is also a huge bonus.</description>
+    </item>
+    
+  </channel>
+</rss>

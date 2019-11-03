@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teches on Good Debate</title>
+    <link>https://gooddebate.org/tech/</link>
+    <description>Recent content in Teches on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Jan 2019 19:05:41 -0700</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tech/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker, React, and Security</title>
+      <link>https://gooddebate.org/tech/docker_react_and_security/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/tech/docker_react_and_security/</guid>
+      <description>Docker, React, and Security
+ React Docker  Git Installing Docker Security Using Docker Hub Useful Docker Commands Lessons from Docker  Docker Machine Troubleshooting  This post has been constructed over the course of roughly 4 months, and was done with my friend Zach as independent research in docker security related to dockerizing react web apps. All the code can be found in the repo on Github. I&amp;rsquo;d like to point out that the broken branch wasn&amp;rsquo;t working for some (still) unknown reason related to versioning between when we set up the system and when we upgraded some of the components including nodejs.</description>
+    </item>
+    
+    <item>
+      <title>Applied Neural Networks</title>
+      <link>https://gooddebate.org/tech/neural_nets/</link>
+      <pubDate>Thu, 07 Dec 2017 08:00:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/neural_nets/</guid>
+      <description>Classifying Drones based on Sound Frequency From January to March of this year, I worked with students from Chungnam National University (충남대학교) in South Korean in research regarding Neural Networks. Specifically, we wanted to create a Convolutional Neural Network that could classify different types of drones and whether they were carrying a payload or not using low cost microphones. The purpose of this system was focused on providing law enforcement or military support in identifying if drones were carrying bombs in high density population environments.</description>
+    </item>
+    
+    <item>
+      <title>Python Development Environment</title>
+      <link>https://gooddebate.org/tech/python_development_environment/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/python_development_environment/</guid>
+      <description>Python Development Environment I set out to create an extensible, portable python development that would be consistent if I moved it between operating environments and architectures. When I first set out on this project, I wanted to use Docker to deploy a dev environment on top of a Debian based system. I didn&amp;rsquo;t realize this when I started, nor did Google seem to know that Docker isn&amp;rsquo;t meant for a dev environment, only for pushing about apps after they&amp;rsquo;re made.</description>
+    </item>
+    
+    <item>
+      <title>Failed Building Wheel for Cryptography</title>
+      <link>https://gooddebate.org/tech/failed_building_wheel_for_cryptography/</link>
+      <pubDate>Tue, 02 May 2017 16:38:19 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/failed_building_wheel_for_cryptography/</guid>
+      <description>This post was originally going to be about how to set up a few different systems, including vagrant, docker, ansible, and some random python projects on debian/ubuntu systems, but I ran into a singular problem on almost everything I did. The error was always
+Failed Building Wheel for Cryptography
+I&amp;rsquo;ve gotten this problem several times, and it can be caused by different things. I found a few posts that helped me (here and here and here), but here is a quick summary which should help you in almost all situations:</description>
+    </item>
+    
+    <item>
+      <title>A Week Without Work</title>
+      <link>https://gooddebate.org/tech/a_week_without_work/</link>
+      <pubDate>Mon, 27 Mar 2017 18:17:23 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/a_week_without_work/</guid>
+      <description>A week without work So last week was spring break, and I travelled to sunny southern Florida without my computer or phone. This was the first time since I started working on computers 8 years ago that I&amp;rsquo;ve gone without it for more than a day or two.
+ It was an experience, but I wouldn&amp;rsquo;t do it again.
+ I&amp;rsquo;ve gone without my phone for over a month before, and I didn&amp;rsquo;t mind.</description>
+    </item>
+    
+    <item>
+      <title>Improving the School System</title>
+      <link>https://gooddebate.org/tech/improving_school_system/</link>
+      <pubDate>Mon, 06 Mar 2017 03:06:09 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/improving_school_system/</guid>
+      <description>Improving the School System I recently came across an essay I wrote my senior year in high school entitled &amp;ldquo;How to improve the educational system&amp;rdquo;. This is one of the longest essays I&amp;rsquo;ve ever written at 5400 words, but it wasn&amp;rsquo;t for a class. I wrote the paper because I felt it would help improve the system if the right people read it. It was well received and made its way up the ladder, unfortunately not much came of it.</description>
+    </item>
+    
+    <item>
+      <title>Announcements in March</title>
+      <link>https://gooddebate.org/tech/announcements_march/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/announcements_march/</guid>
+      <description>Announcing the Strategic Intelligence Network, TLS, and Banned Ebooks Note: you can find the SIN and BEb on the menu in the lower left As promised (and implemented roughly 2 weeks ago), this site now services all direct content through TLS using Let&amp;rsquo;s Encrypt. The implementation was surprisingly easy, although I didn&amp;rsquo;t find a quick guide on their site, digitalocean had a very easy and quick 5 minute installation. Some images are still over http, but I&amp;rsquo;m not as concerned about that at the moment, and will spend that small amount of effort elsewhere.</description>
+    </item>
+    
+    <item>
+      <title>Data Collection &amp; Ethics</title>
+      <link>https://gooddebate.org/tech/data_collection___ethics/</link>
+      <pubDate>Tue, 14 Feb 2017 13:38:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/data_collection___ethics/</guid>
+      <description>Data Collection &amp;amp; Ethics ​ Note: This article might seem odd, it was an assignment for a class that I thought was well written enough to post here. It&amp;rsquo;s a long form ethical post. Enjoy
+​ Data collection is an important and highly relevant topic in the modern age. People have wrestled with the degree to which companies control user data for decades, and the world is final starting to see 3 major breaks in ideology.</description>
+    </item>
+    
+    <item>
+      <title>Scripts Sites and School</title>
+      <link>https://gooddebate.org/tech/scripts_sites_and_school/</link>
+      <pubDate>Sun, 05 Feb 2017 13:35:32 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/scripts_sites_and_school/</guid>
+      <description>Scripts Sites and School February already!
+It&amp;rsquo;s been just over a month since my last post. Don&amp;rsquo;t be mistaken though, I currently have 4 articles waiting to edit including
+ Finding and fixing rouge &amp;lsquo;smart&amp;rsquo; routers on an enterprise network Installing and setting up the Skylines Project Part 1 of the Fuzzing series A long-form article about ethics in data collection, retention, and analysis.  Now you may be thinking that&amp;rsquo;s a lot of articles to have waiting for editing and you&amp;rsquo;d be right; I enjoy writing, I do not enjoy editing.</description>
+    </item>
+    
+    <item>
+      <title>Monero and BTC Prices Surge</title>
+      <link>https://gooddebate.org/tech/crypto_prices_increase/</link>
+      <pubDate>Tue, 03 Jan 2017 08:08:08 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/crypto_prices_increase/</guid>
+      <description>Cryptocurrency prices surge Many people have noticed the price of Bitcoin increasing dramatically over the past few months, which has clearly been due to its increased popularity in China as the yuan has fallen. What many have not noticed, though, is the extremely high growth of Monero in the past month.
+When I first heard about Monero in July, its price had recently jumped to $1.50. I knew it was extremely useful as a real private cyrptocurrency, unlike bitcoin, so it was popular within the criminal culture.</description>
+    </item>
+    
+    <item>
+      <title>Get Started Hacking</title>
+      <link>https://gooddebate.org/tech/get_started_hacking/</link>
+      <pubDate>Tue, 13 Dec 2016 20:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/get_started_hacking/</guid>
+      <description>If you want to hack (all the things) In my last post, I told my story about how I started hacking. Hopefully that made you want to learn too, so I made the honorary &amp;lsquo;How to start hacking&amp;rsquo; post. The following are tips when starting out that I wish I knew, as sometimes it&amp;rsquo;s hard to figure out what you should be learning.
+Google As stated, googling is the most important thing you can do.</description>
+    </item>
+    
+    <item>
+      <title>Why I started Hacking</title>
+      <link>https://gooddebate.org/tech/why-i-started-hacking/</link>
+      <pubDate>Mon, 12 Dec 2016 18:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/why-i-started-hacking/</guid>
+      <description>Why I started hacking I thought I&amp;rsquo;d write this because of the number of questions I get about how I got started hacking, so here&amp;rsquo;s the story:
+*Note: infosec and cybersecurity are used interchangeably.
+I started &amp;lsquo;hacking&amp;rsquo; when I was 12 years old. I got an Xbox 360 the year before, and loved playing Call of Duty. After about a year, it started getting a little boring, but one day I joined a random game, which happened to be a &amp;lsquo;10th prestige lobby&amp;rsquo;, or a hacked lobby.</description>
+    </item>
+    
+    <item>
+      <title>Kali in VirtualBox</title>
+      <link>https://gooddebate.org/tech/setting_up_kali_using_virtualbox/</link>
+      <pubDate>Mon, 28 Nov 2016 11:40:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/setting_up_kali_using_virtualbox/</guid>
+      <description>Setting up Kali using VirtualBox So this short blog post is about setting up Kali in VirtualBox. I had a few problems with networking, but the process is overall very straight forward. There are various guides out there, but it seems there are almost always unaddressed issues.
+At first I actually tried in VMware, but couldn&amp;rsquo;t quite get the networking right. VirtualBox just turned out to be easier, and VirtualBox seems easier to work with from a Vagrant perspective, which is also a huge bonus.</description>
+    </item>
+    
+    <item>
+      <title>Welcome</title>
+      <link>https://gooddebate.org/tech/welcome/</link>
+      <pubDate>Tue, 22 Nov 2016 20:20:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/welcome/</guid>
+      <description>Welcome! This blog has been revamped using Hugo, a static site generator. Keep an eye out for all things hacking. Mostly offensive, sometimes defensive if I know how to fix things that are broken. You can find me on twitter and github, and can read about me some on the about page. Thanks for checking out the blog!
+Time to get back to work Austin</description>
+    </item>
+    
+  </channel>
+</rss>

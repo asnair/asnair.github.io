@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on Good Debate</title>
+    <link>https://gooddebate.org/tags/devops/</link>
+    <description>Recent content in DevOps on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Jan 2019 19:05:41 -0700</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker, React, and Security</title>
+      <link>https://gooddebate.org/tech/docker_react_and_security/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/tech/docker_react_and_security/</guid>
+      <description>Docker, React, and Security
+ React Docker  Git Installing Docker Security Using Docker Hub Useful Docker Commands Lessons from Docker  Docker Machine Troubleshooting  This post has been constructed over the course of roughly 4 months, and was done with my friend Zach as independent research in docker security related to dockerizing react web apps. All the code can be found in the repo on Github. I&amp;rsquo;d like to point out that the broken branch wasn&amp;rsquo;t working for some (still) unknown reason related to versioning between when we set up the system and when we upgraded some of the components including nodejs.</description>
+    </item>
+    
+    <item>
+      <title>Python Development Environment</title>
+      <link>https://gooddebate.org/tech/python_development_environment/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/python_development_environment/</guid>
+      <description>Python Development Environment I set out to create an extensible, portable python development that would be consistent if I moved it between operating environments and architectures. When I first set out on this project, I wanted to use Docker to deploy a dev environment on top of a Debian based system. I didn&amp;rsquo;t realize this when I started, nor did Google seem to know that Docker isn&amp;rsquo;t meant for a dev environment, only for pushing about apps after they&amp;rsquo;re made.</description>
+    </item>
+    
+  </channel>
+</rss>

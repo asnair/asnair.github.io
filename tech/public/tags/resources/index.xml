@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resources on Good Debate</title>
+    <link>https://gooddebate.org/tags/resources/</link>
+    <description>Recent content in Resources on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Feb 2017 13:35:32 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/resources/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Scripts Sites and School</title>
+      <link>https://gooddebate.org/tech/scripts_sites_and_school/</link>
+      <pubDate>Sun, 05 Feb 2017 13:35:32 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/scripts_sites_and_school/</guid>
+      <description>Scripts Sites and School February already!
+It&amp;rsquo;s been just over a month since my last post. Don&amp;rsquo;t be mistaken though, I currently have 4 articles waiting to edit including
+ Finding and fixing rouge &amp;lsquo;smart&amp;rsquo; routers on an enterprise network Installing and setting up the Skylines Project Part 1 of the Fuzzing series A long-form article about ethics in data collection, retention, and analysis.  Now you may be thinking that&amp;rsquo;s a lot of articles to have waiting for editing and you&amp;rsquo;d be right; I enjoy writing, I do not enjoy editing.</description>
+    </item>
+    
+  </channel>
+</rss>

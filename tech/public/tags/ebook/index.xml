@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ebook on Good Debate</title>
+    <link>https://gooddebate.org/tags/ebook/</link>
+    <description>Recent content in Ebook on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 03 Mar 2017 03:03:03 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/ebook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Announcements in March</title>
+      <link>https://gooddebate.org/tech/announcements_march/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/announcements_march/</guid>
+      <description>Announcing the Strategic Intelligence Network, TLS, and Banned Ebooks Note: you can find the SIN and BEb on the menu in the lower left As promised (and implemented roughly 2 weeks ago), this site now services all direct content through TLS using Let&amp;rsquo;s Encrypt. The implementation was surprisingly easy, although I didn&amp;rsquo;t find a quick guide on their site, digitalocean had a very easy and quick 5 minute installation. Some images are still over http, but I&amp;rsquo;m not as concerned about that at the moment, and will spend that small amount of effort elsewhere.</description>
+    </item>
+    
+  </channel>
+</rss>

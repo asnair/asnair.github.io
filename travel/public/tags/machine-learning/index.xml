@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on Good Debate</title>
+    <link>https://gooddebate.org/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 07 Dec 2017 08:00:21 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Applied Neural Networks</title>
+      <link>https://gooddebate.org/travel/neural_nets/</link>
+      <pubDate>Thu, 07 Dec 2017 08:00:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/travel/neural_nets/</guid>
+      <description>Classifying Drones based on Sound Frequency From January to March of this year, I worked with students from Chungnam National University (충남대학교) in South Korean in research regarding Neural Networks. Specifically, we wanted to create a Convolutional Neural Network that could classify different types of drones and whether they were carrying a payload or not using low cost microphones. The purpose of this system was focused on providing law enforcement or military support in identifying if drones were carrying bombs in high density population environments.</description>
+    </item>
+    
+  </channel>
+</rss>

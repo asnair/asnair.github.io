@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cryptocurrency on Good Debate</title>
+    <link>https://gooddebate.org/tags/cryptocurrency/</link>
+    <description>Recent content in Cryptocurrency on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 03 Jan 2017 08:08:08 -0500</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/cryptocurrency/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Monero and BTC Prices Surge</title>
+      <link>https://gooddebate.org/tech/crypto_prices_increase/</link>
+      <pubDate>Tue, 03 Jan 2017 08:08:08 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tech/crypto_prices_increase/</guid>
+      <description>Cryptocurrency prices surge Many people have noticed the price of Bitcoin increasing dramatically over the past few months, which has clearly been due to its increased popularity in China as the yuan has fallen. What many have not noticed, though, is the extremely high growth of Monero in the past month.
+When I first heard about Monero in July, its price had recently jumped to $1.50. I knew it was extremely useful as a real private cyrptocurrency, unlike bitcoin, so it was popular within the criminal culture.</description>
+    </item>
+    
+  </channel>
+</rss>

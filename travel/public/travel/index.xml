@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Travels on Good Debate</title>
+    <link>https://gooddebate.org/travel/</link>
+    <description>Recent content in Travels on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Jan 2019 19:05:41 -0700</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/travel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Welcome To GD Travel Blog</title>
+      <link>https://gooddebate.org/travel/welcome_to_travel/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/travel/welcome_to_travel/</guid>
+      <description>Welcome to my new travel blog! This blog started as a technical blog in 2015, and the main page of Good Debate is still just that. In the past few years I&amp;rsquo;ve begun travelling internationally, and have now been to 48 US states and 27 countries accross Europe and East Asia. This travel blog will be a collection of thoughts on travelling and how I manage to travel so much on a budget.</description>
+    </item>
+    
+  </channel>
+</rss>

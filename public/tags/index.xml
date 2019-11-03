@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Good Debate</title>
+    <link>https://gooddebate.org/tags/</link>
+    <description>Recent content in Tags on Good Debate</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 02 Jan 2019 19:05:41 -0700</lastBuildDate>
+    
+	<atom:link href="https://gooddebate.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DevOps</title>
+      <link>https://gooddebate.org/tags/devops/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://gooddebate.org/tags/docker/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tutorial</title>
+      <link>https://gooddebate.org/tags/tutorial/</link>
+      <pubDate>Wed, 02 Jan 2019 19:05:41 -0700</pubDate>
+      
+      <guid>https://gooddebate.org/tags/tutorial/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Machine Learning</title>
+      <link>https://gooddebate.org/tags/machine-learning/</link>
+      <pubDate>Thu, 07 Dec 2017 08:00:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Neural Net</title>
+      <link>https://gooddebate.org/tags/neural-net/</link>
+      <pubDate>Thu, 07 Dec 2017 08:00:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/neural-net/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ansible</title>
+      <link>https://gooddebate.org/tags/ansible/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/ansible/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://gooddebate.org/tags/python/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vagrant</title>
+      <link>https://gooddebate.org/tags/vagrant/</link>
+      <pubDate>Mon, 23 Oct 2017 13:17:29 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/vagrant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptography</title>
+      <link>https://gooddebate.org/tags/cryptography/</link>
+      <pubDate>Tue, 02 May 2017 16:38:19 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/cryptography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Improvement</title>
+      <link>https://gooddebate.org/tags/improvement/</link>
+      <pubDate>Mon, 27 Mar 2017 18:17:23 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/improvement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Education</title>
+      <link>https://gooddebate.org/tags/education/</link>
+      <pubDate>Mon, 06 Mar 2017 03:06:09 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/education/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>School</title>
+      <link>https://gooddebate.org/tags/school/</link>
+      <pubDate>Mon, 06 Mar 2017 03:06:09 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/school/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Analytics</title>
+      <link>https://gooddebate.org/tags/analytics/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ebook</title>
+      <link>https://gooddebate.org/tags/ebook/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/ebook/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>SIN</title>
+      <link>https://gooddebate.org/tags/sin/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/sin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TLS</title>
+      <link>https://gooddebate.org/tags/tls/</link>
+      <pubDate>Fri, 03 Mar 2017 03:03:03 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/tls/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ethics</title>
+      <link>https://gooddebate.org/tags/ethics/</link>
+      <pubDate>Tue, 14 Feb 2017 13:38:21 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/ethics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Resources</title>
+      <link>https://gooddebate.org/tags/resources/</link>
+      <pubDate>Sun, 05 Feb 2017 13:35:32 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/resources/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Bitcoin</title>
+      <link>https://gooddebate.org/tags/bitcoin/</link>
+      <pubDate>Tue, 03 Jan 2017 08:08:08 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/bitcoin/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cryptocurrency</title>
+      <link>https://gooddebate.org/tags/cryptocurrency/</link>
+      <pubDate>Tue, 03 Jan 2017 08:08:08 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/cryptocurrency/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Monero</title>
+      <link>https://gooddebate.org/tags/monero/</link>
+      <pubDate>Tue, 03 Jan 2017 08:08:08 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/monero/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://gooddebate.org/tags/tools/</link>
+      <pubDate>Tue, 13 Dec 2016 20:18:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kali</title>
+      <link>https://gooddebate.org/tags/kali/</link>
+      <pubDate>Mon, 28 Nov 2016 11:40:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/kali/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Announcements</title>
+      <link>https://gooddebate.org/tags/announcements/</link>
+      <pubDate>Tue, 22 Nov 2016 20:20:20 -0500</pubDate>
+      
+      <guid>https://gooddebate.org/tags/announcements/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
