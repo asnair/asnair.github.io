@@ -6,11 +6,7 @@
     <description>Recent content in Cryptography on Good Debate</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 02 May 2017 16:38:19 -0500</lastBuildDate>
-    
-	<atom:link href="https://gooddebate.org/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 02 May 2017 16:38:19 -0500</lastBuildDate><atom:link href="https://gooddebate.org/tags/cryptography/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Failed Building Wheel for Cryptography</title>
       <link>https://gooddebate.org/tech/failed_building_wheel_for_cryptography/</link>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <title>Failed Building Wheel for Cryptography &middot; Good Debate</title>
 
@@ -234,42 +234,38 @@
 </div>
 <div class="content">
   <p>This post was originally going to be about how to set up a few different systems, including vagrant, docker, ansible, and some random python projects on debian/ubuntu systems, but I ran into a singular problem on almost everything I did. The error was always</p>
-
 <p><code>Failed Building Wheel for Cryptography</code></p>
-
 <p>I&rsquo;ve gotten this problem several times, and it can be caused by different things. I found a few posts that helped me (<a href="http://stackoverflow.com/questions/22073516/failed-to-install-python-cryptography-package-with-pip-and-setup-py">here</a> and <a href="https://github.com/openwhisk/openwhisk/issues/309">here</a> and <a href="https://github.com/docker-library/python/issues/60">here</a>), but here is a quick summary which should help you in almost all situations:</p>
-
 <ol>
-<li><p>Install dependencies (including gcc, which although included by default almost always, is removed in the python-<strong>slim</strong> packages which are used as an example for docker getting started)</p>
-
+<li>
+<p>Install dependencies (including gcc, which although included by default almost always, is removed in the python-<strong>slim</strong> packages which are used as an example for docker getting started)</p>
 <ul>
-<li><code>sudo -H apt-get install build-essential libssl-dev libffi-dev python-dev gcc</code></li>
-</ul>
-
+<li>
+<p><code>sudo -H apt-get install build-essential libssl-dev libffi-dev python-dev gcc</code></p>
 <p>If any of these packages are already installed, try removing them then running the same line again:</p>
-
-<ul>
-<li><code>sudo -H apt-get uninstall build-essential libssl-dev libffi-dev python-dev gcc</code></li>
+</li>
+<li>
+<p><code>sudo -H apt-get uninstall build-essential libssl-dev libffi-dev python-dev gcc</code></p>
+<p>For some reason removing it then adding it again worked most for me. Also, if you don&rsquo;t use the -H flag it might say the program/folder don&rsquo;t belong to the specified user, which means it failed.</p>
+</li>
 </ul>
-
-<p>For some reason removing it then adding it again worked most for me. Also, if you don&rsquo;t use the -H flag it might say the program/folder don&rsquo;t belong to the specified user, which means it failed.</p></li>
-
-<li><p>When setting up your <em>Dockerfile</em> for the first time, make sure not to use python 2.7 <strong>slim</strong>, as stated slim packages trim a lot, including gcc which is needed for the Cryptography wheel. This was one of the more frustrating issues to fix, so I&rsquo;m stating it specifically.</p></li>
-
-<li><p>Making sure docker-py is installed, which allows docker to interface with python, and is used for apps that interface with docker:</p>
-
+</li>
+<li>
+<p>When setting up your <em>Dockerfile</em> for the first time, make sure not to use python 2.7 <strong>slim</strong>, as stated slim packages trim a lot, including gcc which is needed for the Cryptography wheel. This was one of the more frustrating issues to fix, so I&rsquo;m stating it specifically.</p>
+</li>
+<li>
+<p>Making sure docker-py is installed, which allows docker to interface with python, and is used for apps that interface with docker:</p>
 <ul>
 <li><code>sudo pip install docker-py</code></li>
-</ul></li>
-
-<li><p>Installing openssl would probably be a good idea, as it is used in several libraries. I&rsquo;ve run into a few errors involving libssl, which I believe is part of openssl and can be solved by installing the full library.</p></li>
+</ul>
+</li>
+<li>
+<p>Installing openssl would probably be a good idea, as it is used in several libraries. I&rsquo;ve run into a few errors involving libssl, which I believe is part of openssl and can be solved by installing the full library.</p>
+</li>
 </ol>
-
 <p>More than these options, you&rsquo;ll have to look through the error log if you get problems. When trying to solve the <code>Failed Building Wheel for Cryptography</code> , make sure to look before that error, as sometimes there was a previous error that caused it which might not show up in red text. With the Dockerfile and gcc, the only error was <code>gcc: no file or directory found</code> as it didn&rsquo;t know gcc was a program to be installed, but this was buried in the log file, not even the error log. So make sure to look through both files if you can&rsquo;t figure it out online.</p>
-
 <p>Thanks for reading.</p>
-
-<p><img src="http://gooddebate.org/images/elephant.JPG" alt="Abstract" /></p>
+<p><img src="http://gooddebate.org/images/elephant.JPG" alt="Abstract"></p>
 
 </div>
 

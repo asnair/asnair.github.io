@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <title>Kali in VirtualBox &middot; Good Debate</title>
 
@@ -233,109 +233,56 @@
   <h2></h2>
 </div>
 <div class="content">
-  
-
-<h1 id="setting-up-kali-using-virtualbox">Setting up Kali using VirtualBox</h1>
-
+  <h1 id="setting-up-kali-using-virtualbox">Setting up Kali using VirtualBox</h1>
 <p>So this short blog post is about setting up Kali in <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>. I had a few problems with networking, but the process is overall very straight forward. There are various guides out there, but it seems there are almost always unaddressed issues.</p>
-
 <p>At first I actually tried in VMware, but couldn&rsquo;t quite get the networking right. VirtualBox just turned out to be easier, and VirtualBox seems easier to work with from a <a href="https://www.vagrantup.com/">Vagrant</a> perspective, which is also a huge bonus.</p>
-
 <p>For odd problems your having, such as networking or installing packages afterwards, see the bottom of this post.</p>
-
 <h4 id="1-download-virtualbox">1) Download VirtualBox</h4>
-
 <p>You can download VirtualBox at <a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p>
-
 <h4 id="2-download-kali-linux-distro">2) Download Kali Linux Distro</h4>
-
 <p>You can find the newest Kali version (currently 2.0) at <a href="https://www.kali.org/downloads/">https://www.kali.org/downloads/</a></p>
-
 <h4 id="3-create-new-vm-in-virtualbox">3) Create new VM in VirtualBox</h4>
-
 <p>Install VirtualBox through the prompt wherever you want. I tend to install it on my second disk or external hard drive where I have several Terabytes of space. Now once you open Virtualbox, you&rsquo;ll see an option to create a new VM:</p>
-
-<p><img src="http://gooddebate.org/images/VBpic1.PNG" alt="VirtualBox Screen" /></p>
-
+<p><img src="http://gooddebate.org/images/VBpic1.PNG" alt="VirtualBox Screen"></p>
 <p>Next, you&rsquo;ll see a prompt about naming and identifying the operating system:</p>
-
-<p><img src="http://gooddebate.org/images/VBpic2.PNG" alt="VirtualBox Screen" /></p>
-
+<p><img src="http://gooddebate.org/images/VBpic2.PNG" alt="VirtualBox Screen"></p>
 <p>Name it whatever you want, but the OS type is Linux, and the specific verson is Debian x64 (or x32 if you chose the 32 bit version. <em>Don&rsquo;t</em> choose the 32 bit version).</p>
-
 <p>After this you <strong>set the RAM</strong> you want to give the VM. This very much depends on the individual. I often have a lot of things running on my host machine and don&rsquo;t really need that much, so I give mine 1GB on an 8GB RAM machine. You might want to do more, although VirtualBox itself tells you what you should do at most (indicated by the red line on the scroll bar).</p>
-
 <p>Next you will need to <strong>create a new hard disk</strong>. This prompt will ask what type of hard disk file type. If you always plan on using VirtualBox, the default is fine. If you think you might want to try VMware in the future, use the VMDK format. It&rsquo;s a standard format that would make that process easier. Next, use Dynamically allocated (the default), and allot space to the VM.</p>
-
 <p>The space allocation also depends on the individual, I generally do 20-30GB per VM, although if I know I&rsquo;ll be working with big data I sometimes go up to 200. If you have Terabytes, this doesn&rsquo;t matter as much. You also name the VMDK here, which I normally use the same as the VM name. You can also set where you want to store the VM on this prompt by clicking the small folder in the top right:</p>
-
-<p><img src="http://gooddebate.org/images/VBpic3.PNG" alt="VirtualBox Screen" /></p>
-
+<p><img src="http://gooddebate.org/images/VBpic3.PNG" alt="VirtualBox Screen"></p>
 <p>You can now turn on the VM to get started installing Kali!</p>
-
 <h4 id="4-install-kali-on-the-vm">4) Install Kali on the VM</h4>
-
 <p>When you power on the machine, it will ask you to select an image to use. Click the folder once again to select the kali .iso you downloaded earlier:</p>
-
-<p><img src="http://gooddebate.org/images/VBpic4.PNG" alt="VirtualBox Screen" /></p>
-
+<p><img src="http://gooddebate.org/images/VBpic4.PNG" alt="VirtualBox Screen"></p>
 <p>After selecting the ISO, you will be presented with the Kali install screen. Choose Graphical Install like so:</p>
-
-<p><img src="http://gooddebate.org/images/VBpic5.PNG" alt="VirtualBox Screen" /></p>
-
+<p><img src="http://gooddebate.org/images/VBpic5.PNG" alt="VirtualBox Screen"></p>
 <p>*Also note, to exit the VM to be able to work on your host computer, use the right ctrl button. That is the escape key in VirtualBox. In VMware it&rsquo;s Ctrl+Alt.</p>
-
 <p>As you go through the prompt, most of it is self explanatory. I normally make my hostname kali or home, just something short and simple. Don&rsquo;t enter anything for the domain name, as you aren&rsquo;t in a domain. If you were you probably wouldn&rsquo;t be reading this tutorial.</p>
-
 <p>For partitioning the disk, you should use the <code>Guided - use entire disk and set up encrypted LVM</code> option. Continue through the prompt, and write the changes to disks and configure the LVM. When everything is done, you should be able to boot into kali and get to the desktop!</p>
-
 <h4 id="snapshot">Snapshot!</h4>
-
 <p>Lastly, make sure you snapshot your new machine! This backs it up in case you mess up and you want to go back. It&rsquo;s a good idea to snapshot often, although definitely do before any major changes. You can snapshot by selecting the VM in the main interface, then going to Snapshots in the top right of the screen.</p>
-
 <h3 id="faq">FAQ</h3>
-
-<h4 id="my-networking-doesn-t-work">My networking doesn&rsquo;t work!</h4>
-
+<h4 id="my-networking-doesnt-work">My networking doesn&rsquo;t work!####</h4>
 <p>My networking in VMware was terrible, that&rsquo;s why I switched to VirtualBox. Normally it should work automatically. To edit the networking settings and other settings of the VM (make sure you know what the defaults are), when the machine is powered off you can go to  Settings in the main interface.</p>
-
 <p>To edit the network, go the Network in the settings. If should say Adapter 1 is enabled, and attached to <strong>NAT</strong>. Bridged networks are harder to get working, and not the way you want to go starting out.</p>
-
-<h4 id="i-can-t-apt-get-install-anything-every-package-is-not-found">I can&rsquo;t apt-get install anything, every package is not found</h4>
-
+<h4 id="i-cant-apt-get-install-anything-every-package-is-not-found">I can&rsquo;t apt-get install anything, every package is not found</h4>
 <p>I&rsquo;ve had this with recent kali installations I&rsquo;ve used. It seems for some reason my sources.list doesn&rsquo;t contain the right reference. To fix, open up terminal and type (case sensitive):</p>
-
-<pre><code class="language-shell">cd /etc/apt
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cd /etc/apt
 vi sources.list
 i
-</code></pre>
-
-<p>Yes, type the &lsquo;i&rsquo; as well.</p>
-
+</code></pre></div><p>Yes, type the &lsquo;i&rsquo; as well.</p>
 <p>Then go to the bottom using the arrow keys, as your mouse doesn&rsquo;t work in terminal. Add this line to the bottom:</p>
-
-<pre><code class="language-shell">deb http://http.kali.org/kali kali-rolling main contrib non-free
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">deb http://http.kali.org/kali kali-rolling main contrib non-free
 deb-src http://http.kali.org/kali kali-rolling main contrib non-free
-</code></pre>
-
-<p>You should now be able to download packages normally. You can check <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories">Kali&rsquo;s official site</a> for the correct source. It&rsquo;s updated periodically with new releases.</p>
-
+</code></pre></div><p>You should now be able to download packages normally. You can check <a href="http://docs.kali.org/general-use/kali-linux-sources-list-repositories">Kali&rsquo;s official site</a> for the correct source. It&rsquo;s updated periodically with new releases.</p>
 <p>If packages still aren&rsquo;t found, you can always google for them, download the .deb, and install manually, which is how apt-get works under-the-hood.</p>
-
 <h4 id="what-should-i-do-first">What should I do first</h4>
-
 <p>Probably install and update things. First thing is</p>
-
-<pre><code class="language-shell">sudo apt-get update
-</code></pre>
-
-<p>I also install <a href="https://tmux.github.io/">tmux</a> as soon as possible, because it&rsquo;s awesome:</p>
-
-<pre><code class="language-shell">sudo apt-get install tmux
-</code></pre>
-
-<p>Also just reading about the <a href="http://tools.kali.org/">kali tools</a> and <a href="http://docs.kali.org/">looking through the docs</a> is always a good idea.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get update
+</code></pre></div><p>I also install <a href="https://tmux.github.io/">tmux</a> as soon as possible, because it&rsquo;s awesome:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install tmux
+</code></pre></div><p>Also just reading about the <a href="http://tools.kali.org/">kali tools</a> and <a href="http://docs.kali.org/">looking through the docs</a> is always a good idea.</p>
 <p>Thanks for reading and happy hacking.</p>
 
 </div>

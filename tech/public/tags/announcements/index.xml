@@ -6,27 +6,13 @@
     <description>Recent content in Announcements on Good Debate</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 22 Nov 2016 20:20:20 -0500</lastBuildDate>
-    
-	<atom:link href="https://gooddebate.org/tags/announcements/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 22 Nov 2016 20:20:20 -0500</lastBuildDate><atom:link href="https://gooddebate.org/tags/announcements/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Welcome</title>
       <link>https://gooddebate.org/tech/welcome/</link>
       <pubDate>Tue, 22 Nov 2016 20:20:20 -0500</pubDate>
       
       <guid>https://gooddebate.org/tech/welcome/</guid>
-      <description>Welcome! This blog has been revamped using Hugo, a static site generator. Keep an eye out for all things hacking. Mostly offensive, sometimes defensive if I know how to fix things that are broken. You can find me on twitter and github, and can read about me some on the about page. Thanks for checking out the blog!
-Time to get back to work Austin</description>
-    </item>
-    
-    <item>
-      <title>Welcome</title>
-      <link>https://gooddebate.org/travel/welcome/</link>
-      <pubDate>Tue, 22 Nov 2016 20:20:20 -0500</pubDate>
-      
-      <guid>https://gooddebate.org/travel/welcome/</guid>
       <description>Welcome! This blog has been revamped using Hugo, a static site generator. Keep an eye out for all things hacking. Mostly offensive, sometimes defensive if I know how to fix things that are broken. You can find me on twitter and github, and can read about me some on the about page. Thanks for checking out the blog!
 Time to get back to work Austin</description>
     </item>
