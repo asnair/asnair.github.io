@@ -3,6 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://gooddebate.org/tags/bio/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gooddebate.org/tech/bio_implants_pros_and_cons/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gooddebate.org/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gooddebate.org/tags/list/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gooddebate.org/tags/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://gooddebate.org/tech/</loc>
+    <lastmod>2021-01-08T07:05:41-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://gooddebate.org/tags/devops/</loc>
     <lastmod>2019-01-02T19:05:41-07:00</lastmod>
   </url>
@@ -14,21 +44,6 @@
   
   <url>
     <loc>https://gooddebate.org/tech/docker_react_and_security/</loc>
-    <lastmod>2019-01-02T19:05:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gooddebate.org/</loc>
-    <lastmod>2019-01-02T19:05:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gooddebate.org/tags/</loc>
-    <lastmod>2019-01-02T19:05:41-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://gooddebate.org/tech/</loc>
     <lastmod>2019-01-02T19:05:41-07:00</lastmod>
   </url>
   
