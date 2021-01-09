@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
   <title>Docker, React, and Security &middot; Good Debate</title>
 
@@ -233,16 +233,12 @@
   <h2></h2>
 </div>
 <div class="content">
-  
-
-<h2 id="a-name-title-a"><a name="title"></a></h2>
-
+  <h2 id="a-nametitlea"><!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
 <p><a href="#title">Docker, React, and Security</a></p>
-
 <ol>
 <li><a href="#react">React</a></li>
-<li><a href="#docker">Docker</a>
-
+<li><a href="#docker">Docker</a></li>
+</ol>
 <ul>
 <li><a href="#git">Git</a></li>
 <li><a href="#install-docker">Installing Docker</a></li>
@@ -250,193 +246,138 @@
 <li><a href="#using-docker-hub">Using Docker Hub</a></li>
 <li><a href="#useful-docker-commands">Useful Docker Commands</a></li>
 <li><a href="#lessons-from-docker">Lessons from Docker</a></li>
-</ul></li>
+</ul>
+<ol start="3">
 <li><a href="#docker-machine">Docker Machine</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
 </ol>
-
-<hr />
-
+<hr>
 <p>This post has been constructed over the course of roughly 4 months, and was done with my friend <a href="https://Github.com/zkeim1997">Zach</a> as independent research in docker security related to dockerizing react web apps. All the code can be found in the <a href="https://Github.com/asnair/react-docker">repo on Github</a>. I&rsquo;d like to point out that the broken branch wasn&rsquo;t working for some (still) unknown reason related to versioning between when we set up the system and when we upgraded some of the components including nodejs. This post will walk through the process of first creating the basic react app, setting up docker, benchmarking docker with a script, and trying to get hot-reloading working using docker machine (spoiler alert: docker machine is getting older and seems to not be as well-supported, it&rsquo;s recommended to use <a href="https://www.terraform.io/">terraform</a> for the purpose we were trying to get docker machine to work with). We then test our docker container using common docker benchmarking tools, and make the site and container available to the local network. Note this is not a production build, as in production a heavier web server and load balancer should be used, such as apache or nginx.</p>
-
 <p>Note all commands used are on Ubuntu 18.04, although these should work in any debian-based Linux environment.
-<a name="react"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h2 id="react">React</h2>
-
 <p>To build the basic React app, use used <a href="https://Github.com/facebook/create-react-app">create-react-app</a> and <a href="https://material-ui.com/">material-ui</a> to make an application that takes shipping information as input. To get started with these tools, you must first install npm and nodejs, which you can do using the following commands:</p>
-
-<pre><code class="language-sh">sudo apt-get update
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
 sudo apt-get install nodejs npm
 nodejs -v
 npm -v
-</code></pre>
-
-<p>Note for the app we created we used nodejs v8.10.0 and npm v6.4.0, although installing newer versions shouldn&rsquo;t be an issue.</p>
-
+</code></pre></div><p>Note for the app we created we used nodejs v8.10.0 and npm v6.4.0, although installing newer versions shouldn&rsquo;t be an issue.</p>
 <p>We then created a default application using the following command:</p>
-
 <p><code>npx create-react-app reactdocker</code></p>
-
 <p>Where &lsquo;reactdocker&rsquo; is the directory name of the basic application you want to create. To test the new directory change into the new dir and start the application:</p>
-
-<pre><code class="language-sh">cd reactdocker
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">cd reactdocker
 npm start
-</code></pre>
-
-<p>You can then see the application at <a href="http://localhost:3000">http://localhost:3000</a> and should look like the following:</p>
-
-<p><img src="https://gooddebate.org/images/create-react-app.png" alt="Working React App" /></p>
-
+</code></pre></div><p>You can then see the application at http://localhost:3000 and should look like the following:</p>
+<p><img src="https://gooddebate.org/images/create-react-app.png" alt="Working React App"></p>
 <p>To install material-ui, run the following command to incorporate the framework into the project:</p>
-
 <p><code>npm install @material-ui/core</code></p>
-
 <p>Components using material-ui could now be used. To create a navigation bar to the app, create the file <em>NavBar.js</em> in <em>../reactdocker/src/</em> then add the following code:</p>
-
-<pre><code class="language-js">import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;react&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">AppBar</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@material-ui/core/AppBar&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Toolbar</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@material-ui/core/Toolbar&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">Typography</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@material-ui/core/Typography&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">IconButton</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@material-ui/core/IconButton&#39;</span>;
+<span style="color:#66d9ef">import</span> <span style="color:#a6e22e">MenuIcon</span> <span style="color:#a6e22e">from</span> <span style="color:#e6db74">&#39;@material-ui/icons/Menu&#39;</span>;
 
 
-const NavBar = () =&gt; {
-    return (
-        &lt;div&gt;
-            &lt;AppBar position=&quot;static&quot;&gt;
-                &lt;Toolbar&gt;
-                    &lt;IconButton color=&quot;inherit&quot; aria-label=&quot;Menu&quot;&gt;
-                        &lt;MenuIcon /&gt;
-                    &lt;/IconButton&gt;
-                    &lt;Typography variant=&quot;title&quot; color=&quot;inherit&quot;&gt;
-                        499 React App
-                &lt;/Typography&gt;
-                &lt;/Toolbar&gt;
-            &lt;/AppBar&gt;
-        &lt;/div&gt;
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">NavBar</span> <span style="color:#f92672">=</span> () =&gt; {
+    <span style="color:#66d9ef">return</span> (
+        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">div</span><span style="color:#f92672">&gt;</span>
+            <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">AppBar</span> <span style="color:#a6e22e">position</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;static&#34;</span><span style="color:#f92672">&gt;</span>
+                <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Toolbar</span><span style="color:#f92672">&gt;</span>
+                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">IconButton</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inherit&#34;</span> <span style="color:#a6e22e">aria</span><span style="color:#f92672">-</span><span style="color:#a6e22e">label</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Menu&#34;</span><span style="color:#f92672">&gt;</span>
+                        <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">MenuIcon</span> <span style="color:#f92672">/&gt;</span>
+                    <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/IconButton&gt;</span>
+                    <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">Typography</span> <span style="color:#a6e22e">variant</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;title&#34;</span> <span style="color:#a6e22e">color</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;inherit&#34;</span><span style="color:#f92672">&gt;</span>
+                        <span style="color:#ae81ff">499</span> <span style="color:#a6e22e">React</span> <span style="color:#a6e22e">App</span>
+                <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Typography&gt;</span>
+                <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/Toolbar&gt;</span>
+            <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/AppBar&gt;</span>
+        <span style="color:#f92672">&lt;</span><span style="color:#960050;background-color:#1e0010">/div&gt;</span>
     )
 }
-export default NavBar;
-</code></pre>
-
-<p>This code imports several modules for the creation of our navigation bar. We then define a navbar with a static position and color that inherits from its parent color.</p>
-
+<span style="color:#66d9ef">export</span> <span style="color:#66d9ef">default</span> <span style="color:#a6e22e">NavBar</span>;
+</code></pre></div><p>This code imports several modules for the creation of our navigation bar. We then define a navbar with a static position and color that inherits from its parent color.</p>
 <p>We can then create an address form several components. A widely used module that is worth pointing out is the <em>Grid</em> module from material-ui, which is heavily used in many React applications. Instead of writing the code out in its full form, you can read through the code for the AddressForm <a href="https://Github.com/asnair/react-docker/blob/master/src/AddressForm.js">here</a>, and where the form is actually used in the primary App.js form <a href="https://Github.com/asnair/react-docker/blob/master/src/App.js">here</a>. Components that are created in their own file (such as <em>NavBar.js</em>) need to be rendered within the application. The entry point of any web application is always the index file, which in this case is <a href="https://Github.com/asnair/react-docker/blob/master/public/index.html">index.html</a>. The index references <a href="https://Github.com/asnair/react-docker/blob/master/src/index.js">index.js</a>, which returns a div element with our AddressForm and NavBar, which can be done in 18 lines due to React. The final product of the web app is shown below, hosted on localhost using nodejs built into npm: <code>npm start</code></p>
-
-<p><img src="https://gooddebate.org/images/final-react-app.png" alt="Final Basic React App" />
-<a name="docker"></a></p>
-
+<p><img src="https://gooddebate.org/images/final-react-app.png" alt="Final Basic React App">
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h2 id="docker">Docker</h2>
-
 <p>Before getting this project set up in Docker, we wanted to make sure we could roll back if we broke something. This meant setting up git and putting our project on Github, which also made it easier to share what we were doing and reproduce steps for documentation. Since we don&rsquo;t use git as a core part of our cirriculum in school, we really only use git for personal projects. This meant we ran into some issues with git that slowed us down because we weren&rsquo;t sure what to do, such as <a href="https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit">rolling back to an older commit</a> or <a href="https://stackoverflow.com/a/28354830">reseting the head</a>, whatever that meant. Since this is a post about our methodology regarding this project, here is a quick summary about setting up a git repo and using it with Github for those who rarely use git.
-<a name="git"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="git">Git</h3>
-
 <p>To be able to share code with each other using Github, we first made an empty repo on Github (at <a href="https://github.com/asnair/react-docker">https://github.com/asnair/react-docker</a>) using the GUI, then ran the following commands on each of our local machines in the <em>reactdocker</em> folder after adding all users that needed access as contributors in the Github GUI:</p>
-
-<pre><code class="language-sh">git init
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git init
 git remote add origin https://github.com/asnair/react-docker
 git pull origin master
 git add .
-git commit -m &quot;First commit&quot;
+git commit -m <span style="color:#e6db74">&#34;First commit&#34;</span>
 git push origin master
-</code></pre>
-
-<p>The first line initializes a git repo in the current working directory. After that, we add the empty git repo on Github as the origin, so changes are committed to the online repo when we push new commits. We then pull anything from the online repo to make sure the current working directory is synchronized. After that, we add everything (really all new and modified files) in the current directory using the command <code>git add .</code> to the staging area, known as the index. We then commit the changes to the local repo in the current directory, with a description to match. Lastly, we push the changes in the local repo to the remote repo on Github, which exhibited no conflicts because it was empty.</p>
-
+</code></pre></div><p>The first line initializes a git repo in the current working directory. After that, we add the empty git repo on Github as the origin, so changes are committed to the online repo when we push new commits. We then pull anything from the online repo to make sure the current working directory is synchronized. After that, we add everything (really all new and modified files) in the current directory using the command <code>git add .</code> to the staging area, known as the index. We then commit the changes to the local repo in the current directory, with a description to match. Lastly, we push the changes in the local repo to the remote repo on Github, which exhibited no conflicts because it was empty.</p>
 <p>Now that our git repo was set up and working, we could move on to Docker.
-<a name="install-docker"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="installing-docker">Installing Docker</h3>
-
 <p>We installed Docker CE (what most people just refer to as <em>Docker</em> unless you&rsquo;re an enterprise) according to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">guide on Docker&rsquo;s website</a>. Their documentation and guides are some of the best, so I encourage you to read their official guide, and I&rsquo;ll include the summarized commands here for Ubuntu 16.04 and 18.04 using x86_64 and amd64, which is the most common linux set up. To see your specific system information try running <code>uname -m</code> and <code>lsb_release -a</code></p>
-
-<pre><code class="language-sh">sudo apt-get remove docker docker-engine docker.io
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get remove docker docker-engine docker.io
 sudo apt-get update
-sudo apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    software-properties-common
+sudo apt-get install <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    apt-transport-https <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    ca-certificates <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    curl <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository \
-   &quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;
+sudo add-apt-repository <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   <span style="color:#e6db74">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+</span><span style="color:#e6db74">   </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
+</span><span style="color:#e6db74">   stable&#34;</span>
 sudo apt-get update
 sudo apt-get install docker-ce
-</code></pre>
-
-<p>Now that docker is installed, we can focus on building the container to run the React web app. To get started we wrote a Dockerfile, which is a basic configuration file that tells Docker how to package an application. The following Dockerfile got our application up and running (Note we got the Dockerfile from <a href="https://mherman.org/blog/dockerizing-a-react-app/">this guide</a>, which is a great guide to follow although the docker machine section is broken):</p>
-
-<pre><code class="language-dockerfile"># base image
-FROM node:8.14
-
-# set working directory
-RUN mkdir /usr/src/app
-WORKDIR /usr/src/app
-
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-# install and cache app dependencies
-COPY package.json /usr/src/app/package.json
-RUN npm install --silent
-RUN npm install react-scripts@1.1.1 -g --silent
-
-# start app
-CMD [&quot;npm&quot;, &quot;start&quot;]
-</code></pre>
-
-<p>The nodejs and react-scripts versions you use might be different, but you should set these to provide consistency, and update them when you update the packages within your application. Note that this dockerfile is useful for testing, however in production more needs to be specified such as which web server to use that is built for scalability such as nginx or apache.</p>
-
+</code></pre></div><p>Now that docker is installed, we can focus on building the container to run the React web app. To get started we wrote a Dockerfile, which is a basic configuration file that tells Docker how to package an application. The following Dockerfile got our application up and running (Note we got the Dockerfile from <a href="https://mherman.org/blog/dockerizing-a-react-app/">this guide</a>, which is a great guide to follow although the docker machine section is broken):</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#75715e"># base image</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> node:8.14</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># set working directory</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> mkdir /usr/src/app<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> /usr/src/app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># add `/usr/src/app/node_modules/.bin` to $PATH</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PATH /usr/src/app/node_modules/.bin:$PATH<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># install and cache app dependencies</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> package.json /usr/src/app/package.json<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm install --silent<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> npm install react-scripts@1.1.1 -g --silent<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#75715e"># start app</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;npm&#34;</span>, <span style="color:#e6db74">&#34;start&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>The nodejs and react-scripts versions you use might be different, but you should set these to provide consistency, and update them when you update the packages within your application. Note that this dockerfile is useful for testing, however in production more needs to be specified such as which web server to use that is built for scalability such as nginx or apache.</p>
 <p>After writing a Dockerfile, an image must be built before it can be run. To build an image, execute the following command:</p>
-
 <p><code>docker build -t app .</code></p>
-
 <p>Now the container is built and can be run using the following command (you can add this to a shell script, such as <em>run.sh</em> then run <code>chmod +x run.sh</code> to be able to execute the script):</p>
-
-<pre><code class="language-sh">docker run -it \
-  -v ${PWD}:/usr/src/app \
-  -v /usr/src/app/node_modules \
-  -p 3000:3000 \
-  --rm \
-  app
-</code></pre>
-
-<p>This script runs docker in the current directory in interactive mode with volumes in the container linking directly to <em>/usr/src/app</em> and <em>usr/src/app/node_modules</em>. It also binds port 3000 on the host machine to the container, and removes all unnecessary files. The name of the web app is ‘app’. After running this script, you should be able to navigate to <a href="http://localhost:3000">http://localhost:3000</a> and view the web app.
-<a name="security"></a></p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -it <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span>:/usr/src/app <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v /usr/src/app/node_modules <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -p 3000:3000 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --rm <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  app
+</code></pre></div><p>This script runs docker in the current directory in interactive mode with volumes in the container linking directly to <em>/usr/src/app</em> and <em>usr/src/app/node_modules</em>. It also binds port 3000 on the host machine to the container, and removes all unnecessary files. The name of the web app is ‘app’. After running this script, you should be able to navigate to http://localhost:3000 and view the web app.
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="security">Security</h3>
-
 <p>To test the security of our docker set up, we used a popular <a href="https://github.com/docker/docker-bench-security">docker security benchmark script</a> to test the basic security of docker. This can be done by running a docker container against other containers as stated on the github page:</p>
-
-<pre><code class="language-sh">docker run -it --net host --pid host --userns host --cap-add audit_control \
-    -e DOCKER_CONTENT_TRUST=$DOCKER_CONTENT_TRUST \
-    -v /var/lib:/var/lib \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /usr/lib/systemd:/usr/lib/systemd \
-    -v /etc:/etc --label docker_bench_security \
-    docker/docker-bench-security
-</code></pre>
-
-<p>We ran this script by downloading a local version using:</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -it --net host --pid host --userns host --cap-add audit_control <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e DOCKER_CONTENT_TRUST<span style="color:#f92672">=</span>$DOCKER_CONTENT_TRUST <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v /var/lib:/var/lib <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v /var/run/docker.sock:/var/run/docker.sock <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v /usr/lib/systemd:/usr/lib/systemd <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -v /etc:/etc --label docker_bench_security <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    docker/docker-bench-security
+</code></pre></div><p>We ran this script by downloading a local version using:</p>
 <pre><code>git clone https://github.com/docker/docker-bench-security.git
 sudo ./docker-bench-security/docker-bench-security.sh
-</code></pre>
-
-<p>We then installed auditd and added some rules:</p>
-
-<pre><code class="language-sh">sudo apt-get install auditd
+</code></pre><p>We then installed auditd and added some rules:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get install auditd
 sudo vim /etc/audit/audit.rules
-</code></pre>
-
-<pre><code>-w /usr/bin/docker -p wa
+</code></pre></div><pre><code>-w /usr/bin/docker -p wa
 -w /var/lib/docker -p wa
 -w /etc/docker -p wa
 -w /lib/systemd/system/docker.service -p wa
@@ -445,17 +386,12 @@ sudo vim /etc/audit/audit.rules
 -w /etc/docker/daemon.json -p wa
 -w /usr/bin/docker-containerd -p wa
 -w /usr/bin/docker-runc -p wa
-</code></pre>
-
-<p>We then restarted, auditd so the new rules would take effect, ran the benchmarking script, ensured that only non-root trusted users had access to docker, and configured the docker daemon:</p>
-
-<pre><code class="language-sh">sudo systemctl restart auditd
+</code></pre><p>We then restarted, auditd so the new rules would take effect, ran the benchmarking script, ensured that only non-root trusted users had access to docker, and configured the docker daemon:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo systemctl restart auditd
 sudo ./docker-bench-security/docker-bench-security.sh
 cat /etc/group | grep docker
 sudo vim /etc/docker/daemon.json
-</code></pre>
-
-<pre><code>{
+</code></pre></div><pre><code>{
     &quot;icc&quot;: false,
     &quot;userns-remap&quot;: &quot;default&quot;,
     &quot;log-driver&quot;: &quot;syslog&quot;,
@@ -464,201 +400,163 @@ sudo vim /etc/docker/daemon.json
     &quot;userland-proxy&quot;: false,
     &quot;no-new-privileges&quot;: true
 }
-</code></pre>
-
-<p>The first line indicates that containers can only communicate with each other when explicitly linked. With this configuration attackers who gain control of one container will not be able to manipulate others unless they are configured to do so. The second line enables user namespace remapping allowing the root use to own the process and then the process is then remapped to a less privileged user. The third line is used to enable system logging. The live-restore is used to allow containers to run so that there is improved uptime during updates. The final line is used to prevent privilege escalation.</p>
-
+</code></pre><p>The first line indicates that containers can only communicate with each other when explicitly linked. With this configuration attackers who gain control of one container will not be able to manipulate others unless they are configured to do so. The second line enables user namespace remapping allowing the root use to own the process and then the process is then remapped to a less privileged user. The third line is used to enable system logging. The live-restore is used to allow containers to run so that there is improved uptime during updates. The final line is used to prevent privilege escalation.</p>
 <p>Lastly we enabled content trust, which is a tool used to sign Docker images and verify images before running them. We enabled content trust using the following command:</p>
-
 <p><code>echo &quot;DOCKER_CONTENT_TRUST=1&quot; &gt;&gt; /etc/environment</code></p>
-
 <p>After completing these steps we have successfully baselined the machine used to host our docker images. It is recommended that users also create a separate partition as well as use correct key and certification configurations when deploying docker images to the public.
-<a name="using-docker-hub"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="using-docker-hub">Using Docker Hub</h3>
-
 <p>This section outlines how to explore Docker more, and see how others set up their docker containers. <a href="https://hub.docker.com/">The Docker Hub</a> is a public repo where docker images are stored. You can pull and push images just like with git. If you try and run an image that isn&rsquo;t on your local machine, docker will automatically check the hub and if the image exists, download the image to run it. You can also just download an image and not run it using <code>docker pull USER/IMAGE</code>.</p>
-
 <p>To push images to Docker Hub you must login, find an image you want to push (using <code>docker images</code> or <code>docker image ls</code>), tag the image, then push the image. The commands to do this are listed below:</p>
-
-<pre><code class="language-sh">docker login --username=yourUsername --email=yourEmail@email.com
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker login --username<span style="color:#f92672">=</span>yourUsername --email<span style="color:#f92672">=</span>yourEmail@email.com
 docker images
 docker tag IMAGE-ID yourUsername/reponame:TAG
 docker push yourUsername/reponame
-</code></pre>
-
-<p>The TAG should be descriptive, like &lsquo;apache&rsquo; or &lsquo;docker_web_app&rsquo;.</p>
-
+</code></pre></div><p>The TAG should be descriptive, like &lsquo;apache&rsquo; or &lsquo;docker_web_app&rsquo;.</p>
 <p>You can then run this Docker container anywhere, using the following command:</p>
-
 <p><code>docker run -p 3000:3000 yourUsername/reponame</code></p>
-
 <p>This will download and run the image automatically.
-<a name="useful-docker-commands"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="useful-docker-commands">Useful Docker Commands</h3>
-
 <p>Useful commands to use while working with Docker include the following:</p>
-
 <p>List all docker containers currently running: <code>docker ps</code></p>
-
 <p>List all docker images: <code>docker image ls</code></p>
-
 <p>Kill a specific container: <code>docker rm -f IMAGE</code></p>
-
 <p>Pull image from a registry (such as Docker Hub): <code>docker image pull NAME[:TAG or @DIGEST]</code></p>
-
 <p>SSH into a running Docker Container: <code>sudo docker exec -it CONTAINERID /bin/bash</code>
-<a name="lessons-from-docker"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h3 id="lessons-from-docker">Lessons from Docker</h3>
-
 <p>In our small project working with Docker, we&rsquo;ve learned a few things to consider when working with Docker in the future:</p>
-
 <ol>
 <li>Use the same versions of systems and applications outside containerization technology, meaning the operating system, management applications, and docker versions should be the same.</li>
 <li>The quickest way to get Docker up and running is to use a Dockerfile, however for systems that aren’t simple, using docker-compose and management engines such as k8s or swarm is necessary to increase scalability and simplicity on larger projects.</li>
-
-<li><p>Without tooling for integrating Docker into the deployment process of an app, more time may be spent setting up Docker and similar technologies than is worth the trouble, at least for small projects that don&rsquo;t require extreme consistency across several development teams or even extreme consistency in a single development team. The technology is really cool, but is more useful for medium to larger companies that already have scalability needs.
-<a name="docker-machine"></a></p>
-
-<h2 id="docker-machine">Docker Machine</h2></li>
+<li>Without tooling for integrating Docker into the deployment process of an app, more time may be spent setting up Docker and similar technologies than is worth the trouble, at least for small projects that don&rsquo;t require extreme consistency across several development teams or even extreme consistency in a single development team. The technology is really cool, but is more useful for medium to larger companies that already have scalability needs.
+<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
 </ol>
-
+<h2 id="docker-machine">Docker Machine</h2>
 <p>We tried to use Docker Machine to get hot-reloading of the web app to work, however we failed due to some ongoing bugs in Docker Machine itself, which is why <a href="https://www.terraform.io/">Terraform</a> is the recommended way currently. Despite failing, outlining what we tried to do may help others in the future. If this doesn&rsquo;t apply to you, you can <a href="#Troubleshooting">move along to the Troubleshooting section</a>. Our set up was Ubuntu 18.04 using Virtualbox 5.2.22 and docker-machine 0.16.0.</p>
-
 <p>We wanted to get hot-reloading working in Docker, meaning a new container would be spun up per instance of access to docker. This means each user would have their own container per session, greatly enhancing security. Using our current build, we could just install docker machine using:</p>
-
-<pre><code class="language-sh">base=https://github.com/docker/machine/releases/download/v0.16.0 &amp;&amp; curl -L $base/docker-machine-$(uname -s)-$(uname -m) /tmp/docker-machine &amp;&amp; sudo install /tmp/docker-machine /usr/local/bin/docker-machine
-</code></pre>
-
-<p>Then we could set our current docker image to build a container in a VM that would manage spinning up the same container for each new connection. This new startup script used the following code:</p>
-
-<pre><code class="language-sh">docker run -it --mount type=bind,source=${PWD},destination=/usr/src/app --mount type=bind,source=${PWD}/
-node_modules,destination=/usr/src/app/node_modules,readonly -p 3000:3000 -e CHOKIDAR_USEPOLLING=true --rm app
-</code></pre>
-
-<p>The section of this code which allows for spinning up new containers is the <em>CHOKIDAR_USEPOLLING=true</em> environment variable which allows the VM to use polling to spin up new containers.</p>
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">base<span style="color:#f92672">=</span>https://github.com/docker/machine/releases/download/v0.16.0 <span style="color:#f92672">&amp;&amp;</span> curl -L $base/docker-machine-<span style="color:#66d9ef">$(</span>uname -s<span style="color:#66d9ef">)</span>-<span style="color:#66d9ef">$(</span>uname -m<span style="color:#66d9ef">)</span> /tmp/docker-machine <span style="color:#f92672">&amp;&amp;</span> sudo install /tmp/docker-machine /usr/local/bin/docker-machine
+</code></pre></div><p>Then we could set our current docker image to build a container in a VM that would manage spinning up the same container for each new connection. This new startup script used the following code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -it --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span>,destination<span style="color:#f92672">=</span>/usr/src/app --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PWD<span style="color:#e6db74">}</span>/
+node_modules,destination<span style="color:#f92672">=</span>/usr/src/app/node_modules,readonly -p 3000:3000 -e CHOKIDAR_USEPOLLING<span style="color:#f92672">=</span>true --rm app
+</code></pre></div><p>The section of this code which allows for spinning up new containers is the <em>CHOKIDAR_USEPOLLING=true</em> environment variable which allows the VM to use polling to spin up new containers.</p>
 <p>This code should have worked in theory, however we discovered that docker-machine has an <a href="#issue5">open issue from 2015</a> where when mounting volumes within the container (which we must do for the app itself in <em>/usr/src/app</em> and for the dependency modules in <em>/usr/src/app/node_modules</em>), the volumes only get mounted to the host machine and not the virtual machine. This means when the container is created in the virtual machine, it can’t link to the volumes because the virtual machine also doesn&rsquo;t have access to these volumes. There are fixes for this issue involving ssh or rsync, but these only work on a single virtual machine at a time, and none of the solutions we found would provide auto-reloading. This would mean rolling our own automation by auto-mounting volumes through ssh or rsync, which was outside the scope of our research.
-<a name="troubleshooting"></a></p>
-
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
-
 <p>We ran into several issues, which are bound to happen during development. The fun part, of course, is fixing all the issues. We&rsquo;ve outlined some of the issues we found, how we tried to solve them, and documented what finally worked for us.</p>
-
 <ol>
 <li>Issue: Received error response from daemon driver. This occurred when attempting to duplicate container creation process on another machine.</li>
 </ol>
-
 <ul>
-<li><p>Possible Fixes:</p>
-
+<li>
+<p>Possible Fixes:</p>
 <ul>
-<li>Reinstall docker</li>
-
-<li><p>Ensure docker is updated</p></li>
-
-<li><p><code>sudo apt-get upgrade</code></p></li>
-
-<li><p>Ensure port isn’t being used</p></li>
-
-<li><p><code>netstat -natp</code></p></li>
-
-<li><p>Dependency issue</p></li>
-</ul></li>
-
-<li><p>Fix: Created ubuntu 16.04 machine using VirtualBox, reinstalled nodejs, npm, docker, and followed the previous steps to create docker image containing the react-app.</p></li>
+<li>
+<p>Reinstall docker</p>
+</li>
+<li>
+<p>Ensure docker is updated</p>
+<ul>
+<li><code>sudo apt-get upgrade</code></li>
 </ul>
-
-<ol>
+</li>
+<li>
+<p>Ensure port isn’t being used</p>
+<ul>
+<li><code>netstat -natp</code></li>
+</ul>
+</li>
+<li>
+<p>Dependency issue</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Fix: Created ubuntu 16.04 machine using VirtualBox, reinstalled nodejs, npm, docker, and followed the previous steps to create docker image containing the react-app.</p>
+</li>
+</ul>
+<ol start="2">
 <li>Issue: Received several javascript errors after attempting to update versions of node, npm, react, and dependencies.</li>
 </ol>
-
 <ul>
-<li><p>Possible Fixes:</p>
-
+<li>
+<p>Possible Fixes:</p>
 <ul>
 <li>Reinstall docker</li>
 <li>Revert to old version</li>
 <li>Dependency issue</li>
-</ul></li>
-
-<li><p>Fix: Reverted to working version in git using</p>
-
+</ul>
+</li>
+<li>
+<p>Fix: Reverted to working version in git using</p>
 <ul>
 <li><code>git revert HEAD~7..HEAD</code> (see next issue)</li>
-</ul></li>
 </ul>
-
-<p></p>
-
-<ol>
+</li>
+</ul>
+<ol start="3">
 <li>Issue: Reverting in git continually failed</li>
 </ol>
-
 <ul>
-<li><p>Possible Fixes:</p>
-
+<li>
+<p>Possible Fixes:</p>
 <ul>
 <li><code>git revert d411df6714395d692df62ce25dc509fb7e1ce4a3..cd5b9584baf2ca73a53b5f1ee163279034f52455</code></li>
 <li><code>git revert master~7..HEAD</code></li>
 <li><code>git cherry-pick --continue</code></li>
-</ul></li>
-
-<li><p>Fix: Rebasing was needed rather than reverting, and we didn’t want to hard reset and lose our version history.</p>
-
+</ul>
+</li>
+<li>
+<p>Fix: Rebasing was needed rather than reverting, and we didn’t want to hard reset and lose our version history.</p>
 <ul>
 <li><code>git rebase -i fd4a0907f8b18f10686576e155fab5a49f8b0d56</code></li>
-</ul></li>
 </ul>
-
-<ol>
+</li>
+</ul>
+<ol start="4">
 <li>Issue: After following steps for docker bench security docker user had restricted access and was unable to start or stop docker containers.</li>
 </ol>
-
 <ul>
-<li><p>Possible Fixes:</p></li>
-
-<li><ul>
+<li>
+<p>Possible Fixes:</p>
+</li>
+<li>
+<ul>
 <li>Check that the user was in the docker group</li>
-</ul>
-
-<ul>
 <li>Check that the docker user was logged in</li>
 <li>Check permissions of user</li>
-</ul></li>
-
-<li><p>Fix: The user was not a member of the sudoers file. The user was then added to the sudoers file:</p></li>
-
-<li><ul>
-<li><code>su</code></li>
 </ul>
-
+</li>
+<li>
+<p>Fix: The user was not a member of the sudoers file. The user was then added to the sudoers file:</p>
+</li>
+<li>
 <ul>
+<li><code>su </code></li>
 <li><code>visudo</code></li>
 <li>Added <code>zach ALL=(ALL) NOPASSWD:ALL</code> to <em>/etc/sudoers</em> file</li>
 <li>Note: This is not a best security practice and should only be used during development.</li>
-</ul></li>
 </ul>
-
-<ol>
-<li><a name="issue5></a>Issue: After following steps for hot reloading in docker, the volumes couldn&rsquo;t be mounted within the virtual machine.</li>
+</li>
+</ul>
+<ol start="5">
+<li>&lt;a name=&ldquo;issue5&gt;<!-- raw HTML omitted -->Issue: After following steps for hot reloading in docker, the volumes couldn&rsquo;t be mounted within the virtual machine.</li>
 </ol>
-
 <ul>
-<li><p>Possible Fixes:</p></li>
-
-<li><ul>
+<li>
+<p>Possible Fixes:</p>
+</li>
+<li>
+<ul>
 <li>Ensure the build process was correct</li>
-</ul>
-
-<ul>
 <li>Check where volumes were being mounted</li>
 <li>Manually mount volumes into the VM using the following command: <code>docker-machine mount ${PWD}:/usr/src/app app</code>  and <code>docker-machine mount /usr/src/app/node_modules</code></li>
-</ul></li>
-
-<li><p>Fix: We found mounting in docker-machine is broken in the software itself, and is an ongoing <a href="https://github.com/docker/machine/issues/179">open bug on github</a> so we couldn’t move past this issue unfortunately.</p></li>
+</ul>
+</li>
+<li>
+<p>Fix: We found mounting in docker-machine is broken in the software itself, and is an ongoing <a href="https://github.com/docker/machine/issues/179">open bug on github</a> so we couldn’t move past this issue unfortunately.</p>
+</li>
 </ul>
 
 </div>

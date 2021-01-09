@@ -5,10 +5,6 @@
     <link>https://gooddebate.org/topics/</link>
     <description>Recent content in Topics on Good Debate</description>
     <generator>Hugo -- gohugo.io</generator>
-    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright>
-    
-	<atom:link href="https://gooddebate.org/topics/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <copyright>&amp;copy; Feb 15th, 1946. All rights reserved.</copyright><atom:link href="https://gooddebate.org/topics/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
