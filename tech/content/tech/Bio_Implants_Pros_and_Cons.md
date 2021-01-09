@@ -1,5 +1,5 @@
 +++
-date = "2021-01-09T07:05:41-07:00"
+date = "2021-01-08T07:05:41-07:00"
 title = "Bio Implants: Pros and Cons"
 draft = false
 tags = ["Bio", "List"]

@@ -5,9 +5,9 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.59.0" />
+  <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>Python Development Environment &middot; Good Debate</title>
+  <title>List &middot; Good Debate</title>
 
     
 
@@ -41,6 +41,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
+  
+  <link rel="alternate" type="application/rss+xml" title="Good Debate"
+    href='https://gooddebate.org/tags/list/index.xml' />
   
 
   
@@ -118,6 +121,11 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href='https://gooddebate.org/tags/list/index.xml'><i
+          class="fas fa-rss"></i>RSS</a>
+    </li>
     
 
     
@@ -229,53 +237,56 @@
 
 
 <div class="header">
-  <h1>Python Development Environment</h1>
-  <h2></h2>
+  <h1>List</h1>
 </div>
+
 <div class="content">
   
+    <article>
+  <header>
+    <h2><a href="https://gooddebate.org/tech/bio_implants_pros_and_cons/">Bio Implants: Pros and Cons</a></h2>
 
-<h1 id="python-development-environment">Python Development Environment</h1>
+    <div class="post-meta">
 
-<p>I set out to create an extensible, portable python development that would be consistent if I moved it between operating environments and architectures. When I first set out on this project, I wanted to use <a href="https://www.docker.com/">Docker</a> to deploy a dev environment on top of a Debian based system. I didn&rsquo;t realize this when I started, nor did Google seem to know that Docker isn&rsquo;t meant for a dev environment, only for pushing about apps after they&rsquo;re made. Docker is strictly a deployment tool, so using it as a dev environment is a no-go in case you&rsquo;re as confused as I was.</p>
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>08 Jan 2021, 07:05</time>
+  </div>
 
-<p>The repo for the two files I made are here: <a href="https://github.com/asnair/OtherScripts">https://github.com/asnair/OtherScripts</a></p>
+  
 
-<p>The specific files are the <a href="https://github.com/asnair/OtherScripts/blob/master/Vagrantfile">Vagrantfile</a> and the <a href="https://github.com/asnair/OtherScripts/blob/master/setup.sh">setup.sh</a> files.</p>
+  
 
-<h2 id="setup">Setup</h2>
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://gooddebate.org/tags/bio">Bio</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://gooddebate.org/tags/list">List</a>
+    
+  </div>
+  
+  
 
-<p>So after ruling out Docker, I decided <a href="https://www.vagrantup.com/">Vagrant</a> might be the way to go with a full Debian dev environment. Vagrant deploys Virtual Machines through a provider such as <a href="https://www.virtualbox.org/wiki/Downloads/">Virtualbox</a> or VMware (Note Fusion or Workstation must be used) instead of containers as Docker does. This is often paired with a provisioning tool such as <a href="https://www.ansible.com/">Ansible</a> or <a href="https://www.chef.io/chef/">Chef</a> that let you mass deploy VMs. This is often also deployed as the framework behind container deployments. In a sense, vagrant could be thought of helping bridge the gap between IT infrastructure and DevOps, although this is purely for thinking about how tools relate to each other and not how this would work in practice, as it&rsquo;s still a DevOps activity.</p>
+</div>
 
-<p>Once I figured out I wanted to use Vagrant, I installed the application on my Ubuntu laptop and set up a vagrant environment using <code>vagrant init</code>.</p>
+  </header>
 
-<p>The Vagrantfile I use (vagrant&rsquo;s config file per instance) and shell set up I use are on Github. The important part of the Vagrantfile is below:</p>
+  <p>
+  Bio Implants: Pros and Cons Ever since a friend of mine got a Bio implant in 2016, I&rsquo;ve wanted one as well. There&rsquo;s different types, but the 2 main ones are NFC and RFID based. The time finally came in May 2019 at Circle City Con, where there was a nurse from California who was offering to insert the xEM RFID Chip for $60, which was the cheapest I had seen offered and I could do it in Indiana instead of going to the coasts where most certified nurses are.
+  </p>
 
-<pre><code class="language-python">config.vm.box = &quot;debian/jessie64&quot;
+  
+  <footer>
+    <a href="https://gooddebate.org/tech/bio_implants_pros_and_cons/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
-config.vm.provision :shell, :privileged =&gt; true, :path =&gt; &quot;setup.sh&quot;
-
-config.vm.network &quot;forwarded_port&quot;, guest: 5000, host: 5000
-</code></pre>
-
-<p>You can find a list of VMs to use instead of debian on <a href="https://app.vagrantup.com/boxes/search">vagrant&rsquo;s box search</a>. Note vagrant terminology for a VM is a <em>box</em>.</p>
-
-<p>In the setup.sh file, you can set up your environment using bash and install any dependencies or packages you need. For the forwarded ports, the guest port is the port exposed on the guest you would configure your app to use, and the host port is the port you would connect to on your host to access the internal app from the host machine.</p>
-
-<p><strong>The setup.sh file by default installs git, tmux, vim, build-essential, apache2, and sets up a usable MySQL DB with username and password. Look at the code for everything that&rsquo;s done specifically.</strong></p>
-
-<h2 id="using-the-environment">Using the Environment</h2>
-
-<p>If you have both the Vagrantfile and the setup.sh file in the same directory, you can run <code>vagrant up</code> to begin building the box. It will automatically download the VM and configure it. This means wherever someone has vagrant installed, they can use your Vagrantfile and script to make an environment exactly as yours. This is one of the main goals of the portable dev environment.</p>
-
-<p>Once the environment is done building, you should be able to <code>vagrant ssh</code> into the box and be presented with the shell and environment. In a future update a git repo should automatically be downloaded, for now however, you have to download a repo manually using <code>git clone URL</code>.</p>
-
-<p>When you are done developing in your environment, you can exit the shell by typing <code>exit</code> until you get to outside the box. Once outside the box, you can type <code>vagrant destroy</code> in the current directory, or supply the ID of a specific instance using <code>vagrant global-status</code> then <code>vagrant destroy ID</code>. If you just type <code>vagrant</code>, you can see all commands available. These scripts will get periodic updates in the Github repo, so keep an eye out for them.</p>
-
-<p>Thanks for reading.</p>
-
-<p><img src="https://gooddebate.org/images/anidea.png" alt="An Idea" /></p>
-
+  
 </div>
 
 </div>
@@ -307,4 +318,3 @@ config.vm.network &quot;forwarded_port&quot;, guest: 5000, host: 5000
 
 </body>
 </html>
-
