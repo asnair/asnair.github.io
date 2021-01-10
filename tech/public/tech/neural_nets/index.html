@@ -239,7 +239,7 @@
 <p>TL;DR: Ultimately we weren&rsquo;t able to make the system applicable in a practical environment due to noise variance. This means we couldn&rsquo;t train the network to filter out wind or other noise that would occur in a real world environment, and these noise variances change the frequencies of other noises the microphones detect, ruining our type signatures. We didn&rsquo;t have enough time to pursue solutions to this issue, which leads us to this post.</p>
 <p>The paper is only 4 pages, so I highly encourage you read it, it has some pictures and graphs to complement the written out explanations. This post isn&rsquo;t meant to rewrite the white paper, but explore methods of reducing sound variance that I hope to try and see if accuracy increases in the model as different systems are introduced.</p>
 <p>If you consider frequency, it generally looks something like the following:</p>
-<!-- raw HTML omitted -->
+<img src="https://gooddebate.org/images/freqTypes.jpeg" alt="Drawing" style="width: 500px;"/>
 <p>When considering sound, each sound source has an amplitude and frequency, the two defining parts of a sound waveform. Frequency is the pitch of the sound and can be measured by how close the waves are to each other, while amplitude is how loud a sound source is, and can be measured by how large the waves are. Using the frequency we can classify sound sources separately over a period of frequency, as long as the amplitude of one wave isn&rsquo;t so loud it masks another wave.</p>
 <p><img src="https://gooddebate.org/images/soundenergy.gif" alt="Overlapping Amplitudes"></p>
 <p>The CNN classifies based on what the graph looks like in a certain frequency range, but if there is noise that distorts that specific range and some other noise is simply louder (higher dB), the underlying sound can&rsquo;t be extracted. There is no easy solution to this, as random noise caused by wind doesn&rsquo;t have a function to model as the input is random. However, I wonder if the randomness of wind sound within a small area might be graphed accurately <em>enough</em> has to bring the accuracy within a reasonable range. After doing some research (and relearning a little calculus!), I&rsquo;d like to implement some type of stochastic function and use the output of the function to apply a filter to the input sound before being processed by the CNN and see how accurate the model would be when wind is introduced. Such a system would need initial weights, such as the average wind speed of the area for that specific day to increase or decrease the average filter variance. This would mean, for example, if the wind speed in a city was expected to be around 20 mph that day, a weight of 20 would increase the filter noise removal as compared to a calm, sunny day with wind speed at 2 mph on average.</p>
@@ -267,8 +267,8 @@ $$q &gt; 3 \Longrightarrow ζ(q) &lt; \frac{q}{3}$$ for expected large fluctuati
 <p>Hopefully this article helped you understand some of the math that goes into more advanced Neural Nets. The white paper isn&rsquo;t too long, and may be more interesting to people reading casually so please give it a read, a lot of work went into it.</p>
 <p>Thanks for reading.</p>
 <p><img src="https://gooddebate.org/images/catmath.jpg" alt="Cat Math"></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 
 </div>
 

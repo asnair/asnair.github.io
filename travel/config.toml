@@ -1,6 +1,6 @@
 baseurl = "https://gooddebate.org/" # Make sure to end baseurl with a '/'
 title = "Good Debate"
-author = "Austin Snair"
+author = "Austin"
 # Shown in the side menu
 copyright = "&copy; Feb 15th, 1946. All rights reserved."
 canonifyurls = true
@@ -12,7 +12,7 @@ theme = "blackburn"
 
 [params]
   # Shown in the home page
-  subtitle = "27 Countries, 48 States, a travel blog on the cheap"
+  subtitle = "30 Countries, 49 States, a travel blog on the cheap"
   brand = "GoodDebate"
   #googleAnalytics = "Your Google Analytics tracking ID"
   #disqus = "Your Disqus shortname"
@@ -121,3 +121,7 @@ theme = "blackburn"
   # Other
   keybase = "asnair"
 
+[markup]
+  [markup.goldmark]
+      [markup.goldmark.renderer]
+            unsafe = true
