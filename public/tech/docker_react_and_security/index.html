@@ -233,7 +233,7 @@
   <h2></h2>
 </div>
 <div class="content">
-  <h2 id="a-nametitlea"><!-- raw HTML omitted --><!-- raw HTML omitted --></h2>
+  <h2 id="a-nametitlea"><a name="title"></a></h2>
 <p><a href="#title">Docker, React, and Security</a></p>
 <ol>
 <li><a href="#react">React</a></li>
@@ -254,7 +254,7 @@
 <hr>
 <p>This post has been constructed over the course of roughly 4 months, and was done with my friend <a href="https://Github.com/zkeim1997">Zach</a> as independent research in docker security related to dockerizing react web apps. All the code can be found in the <a href="https://Github.com/asnair/react-docker">repo on Github</a>. I&rsquo;d like to point out that the broken branch wasn&rsquo;t working for some (still) unknown reason related to versioning between when we set up the system and when we upgraded some of the components including nodejs. This post will walk through the process of first creating the basic react app, setting up docker, benchmarking docker with a script, and trying to get hot-reloading working using docker machine (spoiler alert: docker machine is getting older and seems to not be as well-supported, it&rsquo;s recommended to use <a href="https://www.terraform.io/">terraform</a> for the purpose we were trying to get docker machine to work with). We then test our docker container using common docker benchmarking tools, and make the site and container available to the local network. Note this is not a production build, as in production a heavier web server and load balancer should be used, such as apache or nginx.</p>
 <p>Note all commands used are on Ubuntu 18.04, although these should work in any debian-based Linux environment.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="react"></a></p>
 <h2 id="react">React</h2>
 <p>To build the basic React app, use used <a href="https://Github.com/facebook/create-react-app">create-react-app</a> and <a href="https://material-ui.com/">material-ui</a> to make an application that takes shipping information as input. To get started with these tools, you must first install npm and nodejs, which you can do using the following commands:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get update
@@ -301,10 +301,10 @@ npm start
 </code></pre></div><p>This code imports several modules for the creation of our navigation bar. We then define a navbar with a static position and color that inherits from its parent color.</p>
 <p>We can then create an address form several components. A widely used module that is worth pointing out is the <em>Grid</em> module from material-ui, which is heavily used in many React applications. Instead of writing the code out in its full form, you can read through the code for the AddressForm <a href="https://Github.com/asnair/react-docker/blob/master/src/AddressForm.js">here</a>, and where the form is actually used in the primary App.js form <a href="https://Github.com/asnair/react-docker/blob/master/src/App.js">here</a>. Components that are created in their own file (such as <em>NavBar.js</em>) need to be rendered within the application. The entry point of any web application is always the index file, which in this case is <a href="https://Github.com/asnair/react-docker/blob/master/public/index.html">index.html</a>. The index references <a href="https://Github.com/asnair/react-docker/blob/master/src/index.js">index.js</a>, which returns a div element with our AddressForm and NavBar, which can be done in 18 lines due to React. The final product of the web app is shown below, hosted on localhost using nodejs built into npm: <code>npm start</code></p>
 <p><img src="https://gooddebate.org/images/final-react-app.png" alt="Final Basic React App">
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="docker"></a></p>
 <h2 id="docker">Docker</h2>
 <p>Before getting this project set up in Docker, we wanted to make sure we could roll back if we broke something. This meant setting up git and putting our project on Github, which also made it easier to share what we were doing and reproduce steps for documentation. Since we don&rsquo;t use git as a core part of our cirriculum in school, we really only use git for personal projects. This meant we ran into some issues with git that slowed us down because we weren&rsquo;t sure what to do, such as <a href="https://stackoverflow.com/questions/4114095/how-to-revert-a-git-repository-to-a-previous-commit">rolling back to an older commit</a> or <a href="https://stackoverflow.com/a/28354830">reseting the head</a>, whatever that meant. Since this is a post about our methodology regarding this project, here is a quick summary about setting up a git repo and using it with Github for those who rarely use git.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="git"></a></p>
 <h3 id="git">Git</h3>
 <p>To be able to share code with each other using Github, we first made an empty repo on Github (at <a href="https://github.com/asnair/react-docker">https://github.com/asnair/react-docker</a>) using the GUI, then ran the following commands on each of our local machines in the <em>reactdocker</em> folder after adding all users that needed access as contributors in the Github GUI:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">git init
@@ -315,7 +315,7 @@ git commit -m <span style="color:#e6db74">&#34;First commit&#34;</span>
 git push origin master
 </code></pre></div><p>The first line initializes a git repo in the current working directory. After that, we add the empty git repo on Github as the origin, so changes are committed to the online repo when we push new commits. We then pull anything from the online repo to make sure the current working directory is synchronized. After that, we add everything (really all new and modified files) in the current directory using the command <code>git add .</code> to the staging area, known as the index. We then commit the changes to the local repo in the current directory, with a description to match. Lastly, we push the changes in the local repo to the remote repo on Github, which exhibited no conflicts because it was empty.</p>
 <p>Now that our git repo was set up and working, we could move on to Docker.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="install-docker"></a></p>
 <h3 id="installing-docker">Installing Docker</h3>
 <p>We installed Docker CE (what most people just refer to as <em>Docker</em> unless you&rsquo;re an enterprise) according to the <a href="https://docs.docker.com/install/linux/docker-ce/ubuntu/">guide on Docker&rsquo;s website</a>. Their documentation and guides are some of the best, so I encourage you to read their official guide, and I&rsquo;ll include the summarized commands here for Ubuntu 16.04 and 18.04 using x86_64 and amd64, which is the most common linux set up. To see your specific system information try running <code>uname -m</code> and <code>lsb_release -a</code></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sudo apt-get remove docker docker-engine docker.io
@@ -361,7 +361,7 @@ sudo apt-get install docker-ce
 </span><span style="color:#ae81ff"></span>  --rm <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>  app
 </code></pre></div><p>This script runs docker in the current directory in interactive mode with volumes in the container linking directly to <em>/usr/src/app</em> and <em>usr/src/app/node_modules</em>. It also binds port 3000 on the host machine to the container, and removes all unnecessary files. The name of the web app is ‘app’. After running this script, you should be able to navigate to http://localhost:3000 and view the web app.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="security"></a></p>
 <h3 id="security">Security</h3>
 <p>To test the security of our docker set up, we used a popular <a href="https://github.com/docker/docker-bench-security">docker security benchmark script</a> to test the basic security of docker. This can be done by running a docker container against other containers as stated on the github page:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">docker run -it --net host --pid host --userns host --cap-add audit_control <span style="color:#ae81ff">\
@@ -404,7 +404,7 @@ sudo vim /etc/docker/daemon.json
 <p>Lastly we enabled content trust, which is a tool used to sign Docker images and verify images before running them. We enabled content trust using the following command:</p>
 <p><code>echo &quot;DOCKER_CONTENT_TRUST=1&quot; &gt;&gt; /etc/environment</code></p>
 <p>After completing these steps we have successfully baselined the machine used to host our docker images. It is recommended that users also create a separate partition as well as use correct key and certification configurations when deploying docker images to the public.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="using-docker-hub"></a></p>
 <h3 id="using-docker-hub">Using Docker Hub</h3>
 <p>This section outlines how to explore Docker more, and see how others set up their docker containers. <a href="https://hub.docker.com/">The Docker Hub</a> is a public repo where docker images are stored. You can pull and push images just like with git. If you try and run an image that isn&rsquo;t on your local machine, docker will automatically check the hub and if the image exists, download the image to run it. You can also just download an image and not run it using <code>docker pull USER/IMAGE</code>.</p>
 <p>To push images to Docker Hub you must login, find an image you want to push (using <code>docker images</code> or <code>docker image ls</code>), tag the image, then push the image. The commands to do this are listed below:</p>
@@ -416,7 +416,7 @@ docker push yourUsername/reponame
 <p>You can then run this Docker container anywhere, using the following command:</p>
 <p><code>docker run -p 3000:3000 yourUsername/reponame</code></p>
 <p>This will download and run the image automatically.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="useful-docker-commands"></a></p>
 <h3 id="useful-docker-commands">Useful Docker Commands</h3>
 <p>Useful commands to use while working with Docker include the following:</p>
 <p>List all docker containers currently running: <code>docker ps</code></p>
@@ -424,14 +424,14 @@ docker push yourUsername/reponame
 <p>Kill a specific container: <code>docker rm -f IMAGE</code></p>
 <p>Pull image from a registry (such as Docker Hub): <code>docker image pull NAME[:TAG or @DIGEST]</code></p>
 <p>SSH into a running Docker Container: <code>sudo docker exec -it CONTAINERID /bin/bash</code>
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="lessons-from-docker"></a></p>
 <h3 id="lessons-from-docker">Lessons from Docker</h3>
 <p>In our small project working with Docker, we&rsquo;ve learned a few things to consider when working with Docker in the future:</p>
 <ol>
 <li>Use the same versions of systems and applications outside containerization technology, meaning the operating system, management applications, and docker versions should be the same.</li>
 <li>The quickest way to get Docker up and running is to use a Dockerfile, however for systems that aren’t simple, using docker-compose and management engines such as k8s or swarm is necessary to increase scalability and simplicity on larger projects.</li>
 <li>Without tooling for integrating Docker into the deployment process of an app, more time may be spent setting up Docker and similar technologies than is worth the trouble, at least for small projects that don&rsquo;t require extreme consistency across several development teams or even extreme consistency in a single development team. The technology is really cool, but is more useful for medium to larger companies that already have scalability needs.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></li>
+<a name="docker-machine"></a></li>
 </ol>
 <h2 id="docker-machine">Docker Machine</h2>
 <p>We tried to use Docker Machine to get hot-reloading of the web app to work, however we failed due to some ongoing bugs in Docker Machine itself, which is why <a href="https://www.terraform.io/">Terraform</a> is the recommended way currently. Despite failing, outlining what we tried to do may help others in the future. If this doesn&rsquo;t apply to you, you can <a href="#Troubleshooting">move along to the Troubleshooting section</a>. Our set up was Ubuntu 18.04 using Virtualbox 5.2.22 and docker-machine 0.16.0.</p>
@@ -442,7 +442,7 @@ docker push yourUsername/reponame
 node_modules,destination<span style="color:#f92672">=</span>/usr/src/app/node_modules,readonly -p 3000:3000 -e CHOKIDAR_USEPOLLING<span style="color:#f92672">=</span>true --rm app
 </code></pre></div><p>The section of this code which allows for spinning up new containers is the <em>CHOKIDAR_USEPOLLING=true</em> environment variable which allows the VM to use polling to spin up new containers.</p>
 <p>This code should have worked in theory, however we discovered that docker-machine has an <a href="#issue5">open issue from 2015</a> where when mounting volumes within the container (which we must do for the app itself in <em>/usr/src/app</em> and for the dependency modules in <em>/usr/src/app/node_modules</em>), the volumes only get mounted to the host machine and not the virtual machine. This means when the container is created in the virtual machine, it can’t link to the volumes because the virtual machine also doesn&rsquo;t have access to these volumes. There are fixes for this issue involving ssh or rsync, but these only work on a single virtual machine at a time, and none of the solutions we found would provide auto-reloading. This would mean rolling our own automation by auto-mounting volumes through ssh or rsync, which was outside the scope of our research.
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<a name="troubleshooting"></a></p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>We ran into several issues, which are bound to happen during development. The fun part, of course, is fixing all the issues. We&rsquo;ve outlined some of the issues we found, how we tried to solve them, and documented what finally worked for us.</p>
 <ol>
@@ -541,7 +541,7 @@ node_modules,destination<span style="color:#f92672">=</span>/usr/src/app/node_mo
 </li>
 </ul>
 <ol start="5">
-<li>&lt;a name=&ldquo;issue5&gt;<!-- raw HTML omitted -->Issue: After following steps for hot reloading in docker, the volumes couldn&rsquo;t be mounted within the virtual machine.</li>
+<li>&lt;a name=&ldquo;issue5&gt;</a>Issue: After following steps for hot reloading in docker, the volumes couldn&rsquo;t be mounted within the virtual machine.</li>
 </ol>
 <ul>
 <li>
