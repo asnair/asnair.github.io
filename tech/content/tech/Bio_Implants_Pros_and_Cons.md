@@ -45,9 +45,9 @@ This isn't a problem with the device, it's a problem with user (read: my) expect
 
 The only time I notice that I have a Bio-implant is when I'm working out. I go to the gym often, and that means pressing, gripping, or holding many bars, barbells, and dumbbells. after a long workout, my hand with the implant will be a bit more sore. It seems like a more tired grip, it's not painful though. I'd say it increases soreness in my left hand an extra 10% compared to my right hand without the implant. Pictures are included for reference:
 
-<img src="https://gooddebate.org/images/hand1.jpg" alt="hand with grip" />
+<img src="https://res.cloudinary.com/dhi1hdyws/image/upload/c_scale,w_500/v1610254162/hand3_oucizf.jpg" alt="hand with grip" />
 
-<img src="https://gooddebate.org/images/hand3.jpg" alt="hand" />
+<img src="https://res.cloudinary.com/dhi1hdyws/image/upload/c_scale,w_500/v1610254162/hand2_muq50p.jpg" alt="hand" />
 
 # Conclusion
 
