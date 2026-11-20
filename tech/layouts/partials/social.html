@@ -10,12 +10,6 @@
 
     <!-- SNS microblogging -->
 
-    {{ with .Site.Social.twitter }}
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://twitter.com/{{ . }}" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
-    </li>
-    {{ end }}
-
     {{ with .Site.Social.gnusocial }}
     <li class="pure-menu-item">
       <a class="pure-menu-link" href="{{ . }}" rel="me" target="_blank"><i class="fas fa-comment"></i>GNU social</a>
@@ -185,12 +179,6 @@
     {{ end }}
 
     <!-- Other -->
-
-    {{ with .Site.Social.keybase }}
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://keybase.io/{{ . }}" rel="me" target="_blank"><i class="fas fa-key"></i>Keybase</a>
-    </li>
-    {{ end }}
 
   </ul>
 </div>
