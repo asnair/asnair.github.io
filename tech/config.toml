@@ -54,31 +54,20 @@ theme = "blackburn"
     pre = "<i class='fa fa-user fa-fw'></i>"
     weight = 3
     identifier = "about"
-    url = "/about/"
-  [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
-    weight = 4
-    url = "/contact/"
+    url = "https://news.ycombinator.com/user?id=lowpro"
   [[menu.main]]
     name = "SIN"
     pre = "<i class='sidebar-button-icon fa fa-lg fa-globe'></i>"
     weight = 5
     identifier = "SIN"
     url = "/sin/mirror/"
-  [[menu.main]]
-    name = "Ebooks"
-    pre = "<i class='sidebar-button-icon fa fa-microphone-slash'></i>"
-    weight = 6
-    identifier = "Ebooks"
-    url = "/sin/banned/"
 
 [social]
   # Link your social networking accounts to the side menu
   # by entering your username or ID.
 
   # SNS microblogging
-  twitter = "@a_snair"
+  #twitter = "@a_snair"
   #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
   #facebook = "*"
   #googleplus = "*"
@@ -119,7 +108,7 @@ theme = "blackburn"
   #discogs = "*"
 
   # Other
-  keybase = "asnair"
+  #keybase = "asnair"
 
 [markup]
   [markup.goldmark]

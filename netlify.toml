@@ -1,0 +1,18 @@
+# Send the About page to the author's Hacker News profile
+[[redirects]]
+  from = "/about"
+  to = "https://news.ycombinator.com/user?id=lowpro"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/about/*"
+  to = "https://news.ycombinator.com/user?id=lowpro"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/travel/about/*"
+  to = "https://news.ycombinator.com/user?id=lowpro"
+  status = 301
+  force = true
